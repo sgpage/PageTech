@@ -1,0 +1,29 @@
+# Netlify configuration for PageTech
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Redirect rules for clean URLs (optional)
+[[redirects]]
+  from = "/support"
+  to = "/support.html"
+  status = 200
+
+[[redirects]]
+  from = "/manual"
+  to = "/manual.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/report-fault"
+  to = "/reportfault.html"
+  status = 200

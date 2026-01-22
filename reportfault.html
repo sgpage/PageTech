@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Fault - PageTech</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .form-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(61, 40, 23, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .form-group small {
+            display: block;
+            margin-top: 0.25rem;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+        .device-info {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .required {
+            color: #d32f2f;
+        }
+        .image-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .image-preview img {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+        .submit-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--primary-color);
+            text-align: center;
+        }
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+        .alert-info {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            color: #1565c0;
+        }
+        .alert-success {
+            background: #e8f5e9;
+            border: 1px solid #4caf50;
+            color: #2e7d32;
+        }
+        .alert-error {
+            background: #ffebee;
+            border: 1px solid #f44336;
+            color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">PageTech</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="detectpro.html">DetectPro</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="min-height: 30vh;">
+            <div class="hero-content">
+                <h1>Report a Fault</h1>
+                <p class="tagline">Help us improve DetectPro by reporting any issues you encounter</p>
+            </div>
+        </section>
+
+        <div class="form-container">
+            <div class="alert alert-info" id="statusInfo">
+                <strong>Automated Reporting Active:</strong> Your fault report will be automatically logged to GitHub and we'll receive an email notification. We'll respond within 24 hours.
+            </div>
+
+            <form id="faultReportForm">
+                <div class="form-group">
+                    <label>Device Information</label>
+                    <div class="device-info" id="deviceInfo">
+                        Detecting device information...
+                    </div>
+                    <small>This information is automatically detected to help us diagnose the issue</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="numFinds">Number of Finds in Database <span class="required">*</span></label>
+                    <input type="number" id="numFinds" name="numFinds" required min="0" placeholder="e.g., 150">
+                    <small>Approximate number of finds you have recorded in DetectPro</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="imageUrls">Image URLs</label>
+                    <textarea id="imageUrls" name="imageUrls" placeholder="Paste image URLs here, one per line"></textarea>
+                    <small>If your app shared images via URL, paste them here (one URL per line)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="imageUpload">Or Upload Images</label>
+                    <input type="file" id="imageUpload" name="imageUpload" accept="image/*" multiple onchange="previewImages(this)">
+                    <small>Select one or more images showing the issue (max 5 images, 5MB each)</small>
+                    <div class="image-preview" id="imagePreview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="faultDescription">What is the Fault? <span class="required">*</span></label>
+                    <textarea id="faultDescription" name="faultDescription" required placeholder="Describe the issue you're experiencing..."></textarea>
+                    <small>Be as specific as possible about what went wrong</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="stepsToReproduce">What were you doing to make it happen? <span class="required">*</span></label>
+                    <textarea id="stepsToReproduce" name="stepsToReproduce" required placeholder="1. I opened the app&#10;2. I tapped on...&#10;3. Then I..."></textarea>
+                    <small>Step-by-step description of what you were doing when the fault occurred</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="impact">What is the impact? <span class="required">*</span></label>
+                    <select id="impact" name="impact" required>
+                        <option value="">Select impact level...</option>
+                        <option value="critical">Critical - Cannot use the app at all</option>
+                        <option value="high">High - Major feature not working, significant disruption</option>
+                        <option value="medium">Medium - Feature partially working, workaround available</option>
+                        <option value="low">Low - Minor inconvenience, cosmetic issue</option>
+                    </select>
+                    <small>How severely does this issue affect your use of DetectPro?</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    <small>So we can follow up with you about this issue</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="additionalInfo">Additional Information</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Any other details that might help us resolve this issue..."></textarea>
+                </div>
+
+                <div class="submit-section">
+                    <button type="submit" class="btn btn-primary">Submit Fault Report</button>
+                    <a href="support.html" class="btn btn-secondary" style="margin-left: 1rem;">Cancel</a>
+                </div>
+            </form>
+
+            <div id="successMessage" class="alert alert-success" style="display: none; margin-top: 2rem;">
+                <strong>Report Submitted Successfully!</strong><br>
+                <span id="successText">Your fault report has been logged. We'll be in touch soon!</span>
+            </div>
+
+            <div id="errorMessage" class="alert alert-error" style="display: none; margin-top: 2rem;">
+                <strong>Error!</strong><br>
+                <span id="errorText"></span>
+            </div>
+        </div>
+
+        <div class="form-container" style="margin-top: 3rem;">
+            <h2>How Automated Reporting Works</h2>
+            <p>When you submit a fault report, our system automatically:</p>
+            
+            <div class="features-grid" style="margin-top: 2rem;">
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Creates GitHub Issue</h3>
+                    <p>Your report is logged as a tracked issue in our repository with all details and screenshots</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>Sends Email Notification</h3>
+                    <p>Our team receives an immediate email alert with your report details</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Prioritizes by Impact</h3>
+                    <p>Issues are automatically labeled and prioritized based on the impact level you select</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem;">We typically respond to fault reports within 24 hours. Critical issues are handled immediately.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 PageTech. All rights reserved.</p>
+            <p>Empowering detectorists with innovative technology</p>
+        </div>
+    </footer>
+
+    <script>
+        // Detect and display device information
+        function detectDeviceInfo() {
+            const nav = navigator;
+            const screen = window.screen;
+            
+            const deviceInfo = {
+                userAgent: nav.userAgent,
+                platform: nav.platform,
+                language: nav.language,
+                screenResolution: `${screen.width}x${screen.height}`,
+                viewport: `${window.innerWidth}x${window.innerHeight}`,
+                pixelRatio: window.devicePixelRatio,
+                online: nav.onLine,
+                cookiesEnabled: nav.cookieEnabled,
+                timestamp: new Date().toISOString()
+            };
+
+            const infoHtml = `
+                <strong>Browser:</strong> ${nav.userAgent}<br>
+                <strong>Platform:</strong> ${deviceInfo.platform}<br>
+                <strong>Screen:</strong> ${deviceInfo.screenResolution} (${deviceInfo.pixelRatio}x pixel ratio)<br>
+                <strong>Viewport:</strong> ${deviceInfo.viewport}<br>
+                <strong>Language:</strong> ${deviceInfo.language}<br>
+                <strong>Online:</strong> ${deviceInfo.online ? 'Yes' : 'No'}<br>
+                <strong>Timestamp:</strong> ${new Date().toLocaleString()}
+            `;
+
+            document.getElementById('deviceInfo').innerHTML = infoHtml;
+            return deviceInfo;
+        }
+
+        // Preview uploaded images
+        function previewImages(input) {
+            const preview = document.getElementById('imagePreview');
+            preview.innerHTML = '';
+
+            if (input.files) {
+                const files = Array.from(input.files).slice(0, 5); // Max 5 images
+                files.forEach(file => {
+                    if (file.size > 5 * 1024 * 1024) { // 5MB limit
+                        alert(`${file.name} is too large. Maximum file size is 5MB.`);
+                        return;
+                    }
+
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        preview.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('faultReportForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Disable submit button to prevent double submission
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            const deviceInfo = detectDeviceInfo();
+            const formData = new FormData(e.target);
+
+            // Create a structured report
+            const report = {
+                timestamp: new Date().toISOString(),
+                deviceInfo: deviceInfo,
+                numFinds: formData.get('numFinds'),
+                imageUrls: formData.get('imageUrls').split('\n').filter(url => url.trim()),
+                faultDescription: formData.get('faultDescription'),
+                stepsToReproduce: formData.get('stepsToReproduce'),
+                impact: formData.get('impact'),
+                email: formData.get('email'),
+                additionalInfo: formData.get('additionalInfo')
+            };
+
+            try {
+                // Submit to Netlify function
+                const response = await fetch('/.netlify/functions/submit-fault-report', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(report)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    // Show success message
+                    document.getElementById('successText').innerHTML = 
+                        `Your fault report has been logged as GitHub Issue 
+                        <a href="${result.issueUrl}" target="_blank" style="color: #3D2817; font-weight: bold;">#${result.issueNumber}</a>. 
+                        We'll be in touch soon at ${report.email}!`;
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+                    document.getElementById('statusInfo').style.display = 'none';
+                    
+                    // Reset form
+                    e.target.reset();
+                    document.getElementById('imagePreview').innerHTML = '';
+                    detectDeviceInfo();
+                    
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    throw new Error(result.message || 'Submission failed');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                
+                // Show error message with fallback option
+                document.getElementById('errorText').innerHTML = 
+                    `${error.message}<br><br>
+                    <strong>Fallback option:</strong> Please email your report directly to 
+                    <a href="mailto:steve@pagetech.com" style="color: #3D2817;">steve@pagetech.com</a>`;
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+                
+                // Scroll to error message
+                document.getElementById('errorMessage').scrollIntoView({ behavior: 'smooth' });
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+
+        // Initialize device info on page load
+        window.addEventListener('load', detectDeviceInfo);
+
+        // Parse URL parameters for pre-filled data
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            if (urlParams.has('finds')) {
+                document.getElementById('numFinds').value = urlParams.get('finds');
+            }
+            
+            if (urlParams.has('images')) {
+                const images = urlParams.get('images');
+                document.getElementById('imageUrls').value = decodeURIComponent(images).replace(/,/g, '\n');
+            }
+
+            if (urlParams.has('fault')) {
+                document.getElementById('faultDescription').value = decodeURIComponent(urlParams.get('fault'));
+            }
+        });
+    </script>
+</body>
+</html>

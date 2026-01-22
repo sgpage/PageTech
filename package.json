@@ -1,0 +1,17 @@
+{
+  "name": "pagetech-support",
+  "version": "1.0.0",
+  "description": "PageTech website with automated fault reporting",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  },
+  "author": "PageTech",
+  "license": "MIT"
+}

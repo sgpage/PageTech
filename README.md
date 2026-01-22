@@ -1,10 +1,38 @@
-# PageTech Website
+# PageTech - DetectPro Support System
 
-Company website for PageTech - Developer of DetectPro, the ultimate tech tool for Detectorists.
+Professional website for PageTech featuring DetectPro, the ultimate tech tool for metal detectorists. Includes a comprehensive automated support system with fault reporting.
 
-## 🚀 Hosting on GitHub Pages
+## 🌟 Features
 
-### Setup Instructions
+- **Modern, Responsive Design** - Works beautifully on all devices
+- **DetectPro Product Page** - Showcase your metal detecting app
+- **Comprehensive Support System**:
+  - User Manual with detailed documentation
+  - Interactive FAQ with expandable sections
+  - Automated Fault Reporting System
+- **Automated Backend**:
+  - Automatic GitHub issue creation
+  - Email notifications via SendGrid
+  - Device information capture
+  - Image upload support
+
+## 🚀 Deployment Options
+
+### Option 1: Netlify (Recommended - Required for Automated Reporting)
+
+Follow the detailed guide in [QUICK-SETUP.md](QUICK-SETUP.md) to:
+1. Create GitHub Personal Access Token
+2. Set up SendGrid for email notifications  
+3. Deploy to Netlify
+4. Configure environment variables
+5. Test the system
+
+**Estimated time:** 30 minutes  
+**Cost:** $0/month using free tiers
+
+### Option 2: GitHub Pages (Simple - No Automated Reporting)
+
+For static hosting without fault reporting backend:
 
 1. **Create a GitHub repository:**
    - Go to [GitHub](https://github.com) and create a new repository
@@ -32,50 +60,90 @@ Company website for PageTech - Developer of DetectPro, the ultimate tech tool fo
 
 ```
 PageTech/
-├── index.html          # Home page
-├── detectpro.html      # DetectPro product page
-├── styles.css          # All styling
-└── README.md           # This file
+├── index.html              # Homepage
+├── detectpro.html          # DetectPro product page
+├── support.html            # Support hub
+├── manual.html             # User manual
+├── faq.html                # FAQ page
+├── reportfault.html        # Fault reporting form
+├── styles.css              # Main stylesheet
+├── netlify/
+│   └── functions/
+│       └── submit-fault-report.js  # Serverless function
+├── netlify.toml            # Netlify configuration
+├── package.json            # Node dependencies
+├── QUICK-SETUP.md          # Setup instructions
+└── README.md               # This file
 ```
+
+## 🛠️ Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Create environment file (for local testing)
+cp .env.example .env
+# Edit .env with your credentials
+
+# Run local development server
+npx netlify dev
+```
+
+Visit http://localhost:8888
+
+## 🔧 Environment Variables
+
+Required for automated fault reporting (set in Netlify dashboard):
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `GITHUB_TOKEN` | GitHub Personal Access Token | `ghp_xxxxxxxxxxxx` |
+| `GITHUB_OWNER` | Your GitHub username | `stevepage` |
+| `GITHUB_REPO` | Repository name | `PageTech` |
+| `SENDGRID_API_KEY` | SendGrid API key | `SG.xxxxxxxxxxxx` |
+| `NOTIFICATION_EMAIL` | Your email for notifications | `steve@pagetech.com` |
+
+## 📧 How Fault Reporting Works
+
+1. User submits fault report via form
+2. Netlify Function processes the submission
+3. Creates a GitHub Issue with all details
+4. Sends formatted email notification
+5. User sees success message with issue link
 
 ## 🎨 Design Features
 
-- Warm color scheme inspired by the metal detector icon (yellows, oranges, browns)
-- Responsive design that works on all devices
-- Clean, modern interface
-- Smooth animations and transitions
+- Warm color scheme inspired by metal detecting (golds, bronzes, browns)
+- Fully responsive design for all devices
+- Interactive FAQ with expandable sections
+- Automated fault reporting with GitHub integration
 - Professional layout ready for expansion
 
-## 🔧 Customization
+## 💰 Cost
 
-### Colors
-Edit the CSS variables in `styles.css` to change the color scheme:
-```css
-:root {
-    --primary-color: #E8C590;
-    --secondary-color: #D4A574;
-    --accent-color: #B8935A;
-    --dark-brown: #3D2817;
-}
-```
+Running this system costs **$0/month** using free tiers:
+- Netlify: 100GB bandwidth/month
+- SendGrid: 100 emails/day  
+- GitHub: Unlimited issues
 
-### Content
-- Update text in `index.html` and `detectpro.html`
-- Add more pages by creating new HTML files
-- Link new pages in the navigation menu
+## 🐛 Troubleshooting
 
-## 📧 Contact
+See [QUICK-SETUP.md](QUICK-SETUP.md) for detailed troubleshooting steps.
 
-Update the email link in the contact section to your actual email address.
+Quick checks:
+- Verify all environment variables are set correctly in Netlify
+- Check Netlify function logs for errors
+- Verify GitHub token has `repo` scope
+- Check SendGrid sender verification status
 
-## 🎯 Future Enhancements
+## 📝 Next Steps
 
-- Add actual DetectPro product details when ready
-- Include image gallery
-- Add testimonials section
-- Integrate contact form
-- Add blog section
+1. Follow [QUICK-SETUP.md](QUICK-SETUP.md) to deploy
+2. Test the fault reporting system
+3. Customize content and styling
+4. Connect your custom domain
 
 ---
 
-Built with ❤️ for the metal detecting community
+Built with ❤️ for detectorists everywhere
