@@ -7,6 +7,19 @@
 [functions]
   node_bundler = "esbuild"
 
+# Force HTTPS redirect
+[[redirects]]
+  from = "http://pagetech.co.uk/*"
+  to = "https://pagetech.co.uk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.pagetech.co.uk/*"
+  to = "https://www.pagetech.co.uk/:splat"
+  status = 301
+  force = true
+
 # Redirect rules for clean URLs (optional)
 [[redirects]]
   from = "/support"
