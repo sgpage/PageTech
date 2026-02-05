@@ -4,14 +4,6 @@
 const fetch = require('node-fetch');
 
 exports.handler = async (event, context) => {
-  // Only allow POST requests
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: 'Method not allowed' })
-    };
-  }
-
   // Set CORS headers to allow requests from GitHub Pages
   const headers = {
     'Access-Control-Allow-Origin': '*', // Allows all origins, including your GitHub Pages site
@@ -22,7 +14,20 @@ exports.handler = async (event, context) => {
 
   // Handle preflight requests
   if (event.httpMethod === 'OPTIONS') {
-    return { statusCode: 200, headers, body: '' };
+    return { 
+      statusCode: 200, 
+      headers, 
+      body: JSON.stringify({ message: 'CORS preflight' })
+    };
+  }
+
+  // Only allow POST requests
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      headers,
+      body: JSON.stringify({ error: 'Method not allowed' })
+    };
   }
 
   try {
