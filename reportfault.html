@@ -331,8 +331,13 @@
             };
 
             try {
-                // Submit to Netlify function
-                const response = await fetch('/.netlify/functions/submit-fault-report', {
+                // Submit to Netlify function (hosted separately from GitHub Pages)
+                // Replace 'YOUR-NETLIFY-SITE' with your actual Netlify site name
+                const functionUrl = window.location.hostname === 'localhost' 
+                    ? '/.netlify/functions/submit-fault-report'
+                    : 'https://fluffy-churros-308a88.netlify.app/.netlify/functions/submit-fault-report';
+                
+                const response = await fetch(functionUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -340,7 +345,17 @@
                     body: JSON.stringify(report)
                 });
 
-                const result = await response.json();
+                let result;
+                const contentType = response.headers.get('content-type');
+                
+                if (contentType && contentType.includes('application/json')) {
+                    result = await response.json();
+                } else {
+                    // Got HTML or other non-JSON response
+                    const text = await response.text();
+                    console.error('Non-JSON response:', text);
+                    throw new Error('Server returned an unexpected response. The Netlify function may not be deployed yet.');
+                }
 
                 if (response.ok && result.success) {
                     // Show success message

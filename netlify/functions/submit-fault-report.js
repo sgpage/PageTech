@@ -12,9 +12,9 @@ exports.handler = async (event, context) => {
     };
   }
 
-  // Set CORS headers
+  // Set CORS headers to allow requests from GitHub Pages
   const headers = {
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': '*', // Allows all origins, including your GitHub Pages site
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Content-Type': 'application/json'

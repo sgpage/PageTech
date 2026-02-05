@@ -1,0 +1,19 @@
+# Netlify configuration for Functions Only
+# Main site is hosted on GitHub Pages
+# This Netlify site only provides the backend functions
+
+[build]
+  functions = "netlify/functions"
+  publish = "."
+  command = "echo 'Functions only - no build needed'"
+
+[functions]
+  node_bundler = "esbuild"
+
+# CORS configuration for cross-origin requests from GitHub Pages
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type"
+    Access-Control-Allow-Methods = "POST, OPTIONS"
