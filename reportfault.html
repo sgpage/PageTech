@@ -180,9 +180,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Your Email Address <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                    <small>So we can follow up with you about this issue</small>
+                    <label for="name">Your Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="Your name">
+                    <small>How should we address you?</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com (optional)">
+                    <small>Optional - provide if you'd like us to follow up with you</small>
                 </div>
 
                 <div class="form-group">
@@ -319,7 +325,8 @@
                 faultDescription: formData.get('faultDescription'),
                 stepsToReproduce: formData.get('stepsToReproduce'),
                 impact: formData.get('impact'),
-                email: formData.get('email'),
+                name: formData.get('name'),
+                email: formData.get('email') || null,
                 additionalInfo: formData.get('additionalInfo')
             };
 
@@ -337,10 +344,11 @@
 
                 if (response.ok && result.success) {
                     // Show success message
+                    const contactInfo = report.email ? `We'll be in touch soon at ${report.email}!` : `Thank you for reporting this issue!`;
                     document.getElementById('successText').innerHTML = 
                         `Your fault report has been logged as GitHub Issue 
                         <a href="${result.issueUrl}" target="_blank" style="color: #3D2817; font-weight: bold;">#${result.issueNumber}</a>. 
-                        We'll be in touch soon at ${report.email}!`;
+                        ${contactInfo}`;
                     document.getElementById('successMessage').style.display = 'block';
                     document.getElementById('errorMessage').style.display = 'none';
                     document.getElementById('statusInfo').style.display = 'none';

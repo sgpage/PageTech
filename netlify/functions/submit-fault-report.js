@@ -29,7 +29,7 @@ exports.handler = async (event, context) => {
     const data = JSON.parse(event.body);
     
     // Validate required fields
-    if (!data.email || !data.faultDescription || !data.impact) {
+    if (!data.name || !data.faultDescription || !data.impact) {
       return {
         statusCode: 400,
         headers,
@@ -43,7 +43,7 @@ exports.handler = async (event, context) => {
     const issueBody = `
 ## Fault Report
 **Submitted:** ${new Date(data.timestamp).toLocaleString()}
-**Reporter:** ${data.email}
+**Reporter:** ${data.name}${data.email ? ` (${data.email})` : ''}
 **Impact:** ${data.impact.toUpperCase()}
 
 ### Device Information
@@ -127,7 +127,7 @@ _This issue was automatically created from the DetectPro fault reporting form_
                   <p><strong>GitHub Issue:</strong> 
                     <a href="${issue.html_url}" style="color: #B8935A;">#${issue.number}</a>
                   </p>
-                  <p><strong>Reporter:</strong> ${data.email}</p>
+                  <p><strong>Reporter:</strong> ${data.name}${data.email ? ` (${data.email})` : ''}</p>
                   <p><strong>Impact:</strong> 
                     <span style="color: ${
                       data.impact === 'critical' ? '#d32f2f' :
