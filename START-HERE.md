@@ -7,7 +7,7 @@ I've created a complete automated support system for your PageTech website with 
 ### ✅ New Pages Created
 
 1. **[support.html](support.html)** - Support hub with three main sections
-2. **[manual.html](manual.html)** - Complete DetectPro user manual
+2. **[manual.html](manual.html)** - Complete DetectLogPro user manual
 3. **[faq.html](faq.html)** - Interactive FAQ with 14 common questions
 4. **[reportfault.html](reportfault.html)** - Automated fault reporting form
 
@@ -179,7 +179,7 @@ Total: 16 new/modified files
 
 ## 🎯 What You Can Do With Your App
 
-### Pre-fill Fault Reports from DetectPro
+### Pre-fill Fault Reports from DetectLogPro
 
 Your app can create deep links to pre-fill fault data:
 
@@ -275,7 +275,7 @@ Screen: 1170x2532 (3x pixel ratio)
 App crashes when trying to view the map with more than 200 finds
 
 ### Steps to Reproduce
-1. Open DetectPro
+1. Open DetectLogPro
 2. Navigate to Map view
 3. Wait for pins to load
 4. App freezes and crashes

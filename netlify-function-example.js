@@ -117,7 +117,7 @@ ${data.additionalInfo || 'None provided'}
           to: [{ email: process.env.NOTIFICATION_EMAIL }],
           subject: `New Fault Report: ${data.impact.toUpperCase()}`
         }],
-        from: { email: 'noreply@pagetech.com', name: 'DetectPro Support' },
+        from: { email: 'noreply@pagetech.com', name: 'DetectLogPro Support' },
         content: [{
           type: 'text/html',
           value: `

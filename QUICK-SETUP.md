@@ -18,7 +18,7 @@ You'll need accounts for:
 
 1. Go to GitHub: https://github.com/settings/tokens
 2. Click "Generate new token" → "Generate new token (classic)"
-3. Name it: `DetectPro Fault Reports`
+3. Name it: `DetectLogPro Fault Reports`
 4. Set expiration: `No expiration` (or 1 year)
 5. Check these scopes:
    - ✅ **repo** (all repo permissions)
@@ -34,7 +34,7 @@ You'll need accounts for:
 2. Complete the signup process
 3. Go to Settings → API Keys: https://app.sendgrid.com/settings/api_keys
 4. Click "Create API Key"
-5. Name it: `DetectPro Support`
+5. Name it: `DetectLogPro Support`
 6. Choose "Restricted Access"
 7. Enable only: **Mail Send** → Full Access
 8. Click "Create & View"

@@ -1,11 +1,11 @@
-# PageTech - DetectPro Support System
+# PageTech - DetectLogPro Support System
 
-Professional website for PageTech featuring DetectPro, the ultimate tech tool for metal detectorists. Includes a comprehensive automated support system with fault reporting.
+Professional website for PageTech featuring DetectLogPro, the ultimate tech tool for metal detectorists. Includes a comprehensive automated support system with fault reporting.
 
 ## 🌟 Features
 
 - **Modern, Responsive Design** - Works beautifully on all devices
-- **DetectPro Product Page** - Showcase your metal detecting app
+- **DetectLogPro Product Page** - Showcase your metal detecting app
 - **Comprehensive Support System**:
   - User Manual with detailed documentation
   - Interactive FAQ with expandable sections
@@ -61,7 +61,7 @@ For static hosting without fault reporting backend:
 ```
 PageTech/
 ├── index.html              # Homepage
-├── detectpro.html          # DetectPro product page
+├── detectpro.html          # DetectLogPro product page
 ├── support.html            # Support hub
 ├── manual.html             # User manual
 ├── faq.html                # FAQ page

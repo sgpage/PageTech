@@ -1,6 +1,6 @@
 # Setting Up Automated Fault Reporting
 
-This guide explains how to set up automated fault reporting with GitHub Issues and email notifications for your DetectPro support system.
+This guide explains how to set up automated fault reporting with GitHub Issues and email notifications for your DetectLogPro support system.
 
 ## Overview
 
@@ -21,7 +21,7 @@ The fault reporting system will:
 
 1. Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)
 2. Click "Generate new token (classic)"
-3. Give it a name like "DetectPro Fault Reports"
+3. Give it a name like "DetectLogPro Fault Reports"
 4. Select scope: `repo` (full control of private repositories)
 5. Click "Generate token" and copy it (you won't see it again!)
 

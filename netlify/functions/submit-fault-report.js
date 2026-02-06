@@ -1,4 +1,4 @@
-// Netlify Function for DetectPro Fault Reporting
+// Netlify Function for DetectLogPro Fault Reporting
 // Automatically creates GitHub Issues and sends email notifications
 
 const fetch = require('node-fetch');
@@ -74,7 +74,7 @@ ${data.imageUrls && data.imageUrls.length > 0
 ${data.additionalInfo || '_None provided_'}
 
 ---
-_This issue was automatically created from the DetectPro fault reporting form_
+_This issue was automatically created from the DetectLogPro fault reporting form_
     `.trim();
 
     // Create GitHub issue
@@ -86,7 +86,7 @@ _This issue was automatically created from the DetectPro fault reporting form_
           'Authorization': `token ${process.env.GITHUB_TOKEN}`,
           'Content-Type': 'application/json',
           'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'DetectPro-Support'
+          'User-Agent': 'DetectLogPro-Support'
         },
         body: JSON.stringify({
           title: issueTitle,
@@ -116,11 +116,11 @@ _This issue was automatically created from the DetectPro fault reporting form_
         body: JSON.stringify({
           personalizations: [{
             to: [{ email: process.env.NOTIFICATION_EMAIL }],
-            subject: `🔧 New DetectPro Fault Report: ${data.impact.toUpperCase()}`
+            subject: `🔧 New DetectLogPro Fault Report: ${data.impact.toUpperCase()}`
           }],
           from: { 
             email: 'noreply@pagetech.com', 
-            name: 'DetectPro Support' 
+            name: 'DetectLogPro Support' 
           },
           content: [{
             type: 'text/html',
