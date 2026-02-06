@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - PageTech</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .form-container {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(61, 40, 23, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .form-group small {
+            display: block;
+            margin-top: 0.25rem;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+        .required {
+            color: #d32f2f;
+        }
+        .submit-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--primary-color);
+            text-align: center;
+        }
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+        .alert-info {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            color: #1565c0;
+        }
+        .alert-success {
+            background: #e8f5e9;
+            border: 1px solid #4caf50;
+            color: #2e7d32;
+        }
+        .alert-error {
+            background: #ffebee;
+            border: 1px solid #f44336;
+            color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">PageTech</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="detectpro.html">DetectPro</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="min-height: 30vh;">
+            <div class="hero-content">
+                <h1>Contact Us</h1>
+                <p class="tagline">We'd love to hear from you</p>
+            </div>
+        </section>
+
+        <div class="form-container">
+            <div class="alert alert-info" id="statusInfo">
+                <strong>Get in Touch:</strong> Your message will be logged to our system and we'll respond within 24 hours.
+            </div>
+
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="Your name">
+                    <small>How should we address you?</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    <small>So we can respond to your message</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject <span class="required">*</span></label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a topic...</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Technical Support</option>
+                        <option value="feature">Feature Request</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="partnership">Partnership Opportunity</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <small>What is your message about?</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message <span class="required">*</span></label>
+                    <textarea id="message" name="message" required placeholder="Tell us what's on your mind..."></textarea>
+                    <small>Please provide as much detail as you can</small>
+                </div>
+
+                <div class="submit-section">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <a href="index.html" class="btn btn-secondary" style="margin-left: 1rem;">Cancel</a>
+                </div>
+            </form>
+
+            <div id="successMessage" class="alert alert-success" style="display: none; margin-top: 2rem;">
+                <strong>Message Sent!</strong><br>
+                <span id="successText">Thank you for contacting us. We'll get back to you soon!</span>
+            </div>
+
+            <div id="errorMessage" class="alert alert-error" style="display: none; margin-top: 2rem;">
+                <strong>Error!</strong><br>
+                <span id="errorText"></span>
+            </div>
+        </div>
+
+        <div class="form-container" style="margin-top: 3rem;">
+            <h2>Other Ways to Reach Us</h2>
+            <div class="features-grid" style="margin-top: 2rem;">
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:steve@pagetech.com" style="color: var(--accent-color);">steve@pagetech.com</a></p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🐛</div>
+                    <h3>Report a Bug</h3>
+                    <p><a href="reportfault.html" style="color: var(--accent-color);">Use our Fault Reporting form</a></p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❓</div>
+                    <h3>Need Help?</h3>
+                    <p><a href="support.html" style="color: var(--accent-color);">Visit our Support page</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 PageTech. All rights reserved.</p>
+            <p>Empowering detectorists with innovative technology</p>
+            <p><a href="privacy.html" style="color: var(--accent-color); text-decoration: none;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Disable submit button to prevent double submission
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            const formData = new FormData(e.target);
+
+            // Create a structured message
+            const message = {
+                timestamp: new Date().toISOString(),
+                name: formData.get('name'),
+                email: formData.get('email'),
+                subject: formData.get('subject'),
+                message: formData.get('message'),
+                userAgent: navigator.userAgent
+            };
+
+            try {
+                // Submit to Netlify function
+                const functionUrl = window.location.hostname === 'localhost' 
+                    ? '/.netlify/functions/submit-contact'
+                    : 'https://fluffy-churros-308a88.netlify.app/.netlify/functions/submit-contact';
+                
+                console.log('Submitting to:', functionUrl);
+                console.log('Message data:', message);
+                
+                const response = await fetch(functionUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(message)
+                });
+
+                console.log('Response status:', response.status);
+                
+                let result;
+                const contentType = response.headers.get('content-type');
+                
+                if (contentType && contentType.includes('application/json')) {
+                    result = await response.json();
+                    console.log('Response data:', result);
+                } else {
+                    const text = await response.text();
+                    console.error('Non-JSON response:', text);
+                    throw new Error('Server returned an unexpected response.');
+                }
+
+                if (response.ok && result.success) {
+                    // Show success message
+                    document.getElementById('successText').innerHTML = 
+                        `Thank you, ${message.name}! Your message has been logged as GitHub Issue 
+                        <a href="${result.issueUrl}" target="_blank" style="color: #3D2817; font-weight: bold;">#${result.issueNumber}</a>. 
+                        We'll respond to ${message.email} soon!`;
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+                    document.getElementById('statusInfo').style.display = 'none';
+                    
+                    // Reset form
+                    e.target.reset();
+                    
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    throw new Error(result.message || 'Submission failed');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                
+                // Show error message with fallback option
+                document.getElementById('errorText').innerHTML = 
+                    `${error.message}<br><br>
+                    <strong>Fallback option:</strong> Please email us directly at 
+                    <a href="mailto:steve@pagetech.com" style="color: #3D2817;">steve@pagetech.com</a>`;
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+                
+                // Scroll to error message
+                document.getElementById('errorMessage').scrollIntoView({ behavior: 'smooth' });
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    </script>
+</body>
+</html>
