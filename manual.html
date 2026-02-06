@@ -3,38 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Manual - PageTech</title>
+    <title>DetectLogPro User Manual - PageTech</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .manual-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
+        /* Manual-specific styles */
+        .manual-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 4rem 0 3rem;
+            text-align: center;
         }
-        .manual-section {
-            background: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(61, 40, 23, 0.1);
+
+        .manual-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 5px 15px var(--shadow));
         }
-        .manual-section h2 {
+
+        .manual-hero h1 {
+            font-size: 3rem;
             color: var(--dark-brown);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--primary-color);
-        }
-        .manual-section h3 {
-            color: var(--accent-color);
-            margin-top: 1.5rem;
             margin-bottom: 0.5rem;
         }
-        .manual-section ul, .manual-section ol {
-            margin-left: 2rem;
-            margin-top: 0.5rem;
+
+        .manual-hero .version {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 300;
         }
+
+        .manual-content {
+            background-color: white;
+            padding: 4rem 0;
+        }
+
+        .table-of-contents {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 4rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .table-of-contents h2 {
+            font-size: 1.8rem;
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.75rem;
+        }
+
+        .toc-list a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            display: inline-block;
+        }
+
+        .toc-list a:hover {
+            color: var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .toc-list .sub-item {
+            padding-left: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .manual-section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 80px;
+        }
+
+        .manual-section h2 {
+            font-size: 2.2rem;
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .manual-section h3 {
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .manual-section h4 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .manual-section p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .manual-section ul, .manual-section ol {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
         .manual-section li {
             margin-bottom: 0.5rem;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px var(--shadow);
+            margin: 2rem 0;
+            display: block;
+        }
+
+        .screenshot-container {
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+
+        .screenshot-caption {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .info-box {
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid;
+        }
+
+        .info-box h4 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .note-box {
+            background: #E3F2FD;
+            border-left-color: #2196F3;
+        }
+
+        .note-box h4 {
+            color: #1976D2;
+        }
+
+        .warning-box {
+            background: #FFF3E0;
+            border-left-color: #FF9800;
+        }
+
+        .warning-box h4 {
+            color: #F57C00;
+        }
+
+        .tip-box {
+            background: #F1F8E9;
+            border-left-color: #8BC34A;
+        }
+
+        .tip-box h4 {
+            color: #689F38;
+        }
+
+        .faq-section {
+            background: var(--light-bg);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            color: var(--dark-brown);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .icon-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .icon-item img {
+            max-width: 80px;
+            height: auto;
+            margin-bottom: 0.5rem;
+        }
+
+        .icon-description {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--accent-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--dark-brown);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .manual-hero h1 {
+                font-size: 2rem;
+            }
+
+            .manual-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .manual-section h3 {
+                font-size: 1.4rem;
+            }
+
+            .icon-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
         }
     </style>
 </head>
@@ -45,110 +295,490 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="detectpro.html">DetectPro</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="index.html#about">About</a></li>
                 <li><a href="support.html">Support</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero" style="min-height: 30vh;">
-            <div class="hero-content">
-                <h1>DetectPro User Manual</h1>
-                <p class="tagline">Complete guide to using DetectPro</p>
+        <section class="manual-hero">
+            <div class="container">
+                <img src="Manual/DetectLogPro%20Manual.fld/image001.png" alt="DetectLogPro Logo" class="manual-logo">
+                <h1>DetectLogPro User Manual</h1>
+                <p class="version">Complete Guide to Features and Functionality</p>
             </div>
         </section>
 
-        <div class="manual-content">
-            <div class="manual-section">
-                <h2>Getting Started</h2>
-                <h3>Installation</h3>
-                <p>DetectPro is available for iOS and Android devices. Download the app from your respective app store.</p>
-                <ol>
-                    <li>Search for "DetectPro" in the App Store or Google Play</li>
-                    <li>Download and install the application</li>
-                    <li>Open the app and complete the initial setup</li>
-                    <li>Grant necessary permissions for location and camera access</li>
-                </ol>
+        <section class="manual-content">
+            <div class="container">
+                <!-- Table of Contents -->
+                <div class="table-of-contents">
+                    <h2>📑 Table of Contents</h2>
+                    <ul class="toc-list">
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#maps">Maps</a></li>
+                        <li><a href="#adding-finds">Adding Finds</a></li>
+                        <li><a href="#url-maps">URL Maps (NLS MapTiler)</a></li>
+                        <li><a href="#finds-tab">Finds Tab</a></li>
+                        <li><a href="#pictures-tab">Pictures Tab</a></li>
+                        <li><a href="#overlays">Overlays</a></li>
+                        <li><a href="#reports">Reports</a>
+                            <ul class="toc-list">
+                                <li class="sub-item"><a href="#2d-label-printing">2D Label Printing</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#import-gpkg">Import from GPKG</a></li>
+                        <li><a href="#cloud-sync">Cloud Sync</a></li>
+                        <li><a href="#faq">Frequently Asked Questions</a></li>
+                    </ul>
+                </div>
 
-                <h3>First Time Setup</h3>
-                <p>When you first launch DetectPro, you'll be guided through a quick setup process:</p>
-                <ul>
-                    <li>Create your detectorist profile</li>
-                    <li>Set your preferred units of measurement</li>
-                    <li>Configure location and notification settings</li>
-                </ul>
+                <!-- Introduction -->
+                <div id="introduction" class="manual-section">
+                    <h2>Introduction</h2>
+                    <p>Welcome to DetectLogPro, the comprehensive mobile application designed specifically for metal detecting enthusiasts. DetectLogPro helps you document, organize, and analyze your metal detecting finds with powerful mapping, photography, and reporting features.</p>
+                    
+                    <p>This manual will guide you through all the features of DetectLogPro, from basic find logging to advanced mapping overlays and cloud synchronization. Whether you're a hobbyist or a serious detectorist, DetectLogPro provides the tools you need to make the most of your detecting adventures.</p>
+
+                    <div class="info-box tip-box">
+                        <h4>💡 Getting Started Tip</h4>
+                        <p>We recommend starting with the Maps section to familiarize yourself with the interface, then move on to Adding Finds to log your first discovery!</p>
+                    </div>
+                </div>
+
+                <!-- Maps Section -->
+                <div id="maps" class="manual-section">
+                    <h2>Maps</h2>
+                    <p>The Maps interface is the heart of DetectLogPro, providing you with powerful visualization tools to track your detecting locations and finds. The app offers both desktop and mobile views optimized for different use cases.</p>
+
+                    <h3>Ribbon Menu Icons</h3>
+                    <p>The ribbon menu at the top of the screen provides quick access to all major features:</p>
+
+                    <div class="screenshot-container">
+                        <img src="Manual/DetectLogPro%20Manual.fld/image002.png" alt="Ribbon Menu Icons" class="screenshot">
+                        <p class="screenshot-caption">Figure 1: Ribbon menu showing all available tools and features</p>
+                    </div>
+
+                    <p>The ribbon includes icons for:</p>
+                    <ul>
+                        <li><strong>Map View:</strong> Toggle between different map types and layers</li>
+                        <li><strong>Add Find:</strong> Quickly add a new find to your current location</li>
+                        <li><strong>Finds List:</strong> View all your recorded finds</li>
+                        <li><strong>Pictures:</strong> Access your find photographs</li>
+                        <li><strong>Reports:</strong> Generate and print various reports</li>
+                        <li><strong>Settings:</strong> Configure app preferences and sync options</li>
+                        <li><strong>Overlays:</strong> Manage map overlays and historical maps</li>
+                    </ul>
+
+                    <h3>Desktop View</h3>
+                    <p>The desktop view provides a comprehensive overview with larger map display and side panels for detailed information.</p>
+
+                    <div class="screenshot-container">
+                        <img src="Manual/DetectLogPro%20Manual.fld/image003.png" alt="Desktop Map View" class="screenshot">
+                        <p class="screenshot-caption">Figure 2: Desktop view showing full map interface with side panels</p>
+                    </div>
+
+                    <div class="info-box note-box">
+                        <h4>📌 Note</h4>
+                        <p>The desktop view is ideal for planning detecting trips and analyzing patterns in your finds. Use pinch-to-zoom gestures on tablets or mouse wheel on computers to navigate the map.</p>
+                    </div>
+
+                    <h3>Mobile View</h3>
+                    <p>The mobile view is optimized for field use, with a streamlined interface that's easy to use with one hand.</p>
+
+                    <div class="screenshot-container">
+                        <img src="Manual/DetectLogPro%20Manual.fld/image004.png" alt="Mobile Map View" class="screenshot">
+                        <p class="screenshot-caption">Figure 3: Mobile view optimized for field use</p>
+                    </div>
+
+                    <div class="info-box tip-box">
+                        <h4>💡 Field Use Tip</h4>
+                        <p>In bright sunlight, enable the high-contrast mode in Settings for better screen visibility. The mobile view automatically saves battery by reducing animation effects.</p>
+                    </div>
+                </div>
+
+                <!-- Adding Finds -->
+                <div id="adding-finds" class="manual-section">
+                    <h2>Adding Finds</h2>
+                    <p>Recording your finds is quick and intuitive with DetectLogPro. The app automatically captures your GPS location and allows you to add detailed information about each discovery.</p>
+
+                    <div class="screenshot-container">
+                        <img src="Manual/DetectLogPro%20Manual.fld/image005.png" alt="Add Find Interface" class="screenshot">
+                        <p class="screenshot-caption">Figure 4: Add Find screen with all available fields</p>
+                    </div>
+
+                    <h3>Find Entry Fields</h3>
+                    <p>When adding a find, you can record:</p>
+                    <ul>
+                        <li><strong>Date & Time:</strong> Automatically captured, but can be edited</li>
+                        <li><strong>Location:</strong> GPS coordinates automatically recorded</li>
+                        <li><strong>Find Type:</strong> Select from categories (coin, artifact, jewelry, etc.)</li>
+                        <li><strong>Description:</strong> Detailed notes about your find</li>
+                        <li><strong>Depth:</strong> How deep the item was buried</li>
+                        <li><strong>Material:</strong> Silver, gold, copper, iron, etc.</li>
+                        <li><strong>Condition:</strong> Rate the condition of your find</li>
+                        <li><strong>Estimated Period:</strong> Historical period (Roman, Medieval, Victorian, etc.)</li>
+                        <li><strong>Photos:</strong> Attach multiple photos of the find</li>
+                        <li><strong>Notes:</strong> Additional observations or context</li>
+                    </ul>
+
+                    <div class="info-box warning-box">
+                        <h4>⚠️ Important</h4>
+                        <p>Always ensure your GPS is enabled before adding finds. While you can manually enter coordinates later, automatic GPS capture ensures the most accurate location data.</p>
+                    </div>
+
+                    <h3>Quick Add Mode</h3>
+                    <p>For rapid logging in the field, enable Quick Add mode which captures only essential information (location, time, and a photo). You can fill in additional details later.</p>
+                </div>
+
+                <!-- URL Maps -->
+                <div id="url-maps" class="manual-section">
+                    <h2>URL Maps (NLS MapTiler)</h2>
+                    <p>DetectLogPro supports custom map tile servers, allowing you to overlay historical maps from the National Library of Scotland (NLS) and other sources.</p>
+
+                    <div class="screenshot-container">
+                        <img src="Manual/DetectLogPro%20Manual.fld/image006.png" alt="URL Maps Configuration" class="screenshot">
+                        <p class="screenshot-caption">Figure 5: Configure custom map tile URLs for historical overlays</p>
+                    </div>
+
+                    <h3>Adding Custom Map Sources</h3>
+                    <p>To add a custom map tile server:</p>
+                    <ol>
+                        <li>Navigate to Settings > Map Sources</li>
+                        <li>Tap "Add Custom Map"</li>
+                        <li>Enter a name for your map source</li>
+                        <li>Paste the tile URL (e.g., NLS MapTiler URL)</li>
+                        <li>Set the minimum and maximum zoom levels</li>
+                        <li>Save and activate your new map layer</li>
+                    </ol>
+
+                    <div class="info-box tip-box">
+                        <h4>💡 NLS Maps</h4>
+                        <p>The National Library of Scotland provides excellent historical OS maps. Visit their website to get tile URLs for maps from different time periods. These are invaluable for identifying old settlements and potential detecting sites.</p>
+                    </div>
+
+                    <h3>Supported Tile Formats</h3>
+                    <p>DetectLogPro supports standard XYZ tile formats. The URL should include {z}, {x}, and {y} placeholders:</p>
+                    <p><code>https://example.com/tiles/{z}/{x}/{y}.png</code></p>
+                </div>
+
+                <!-- Finds Tab -->
+                <div id="finds-tab" class="manual-section">
+                    <h2>Finds Tab</h2>
+                    <p>The Finds tab provides a comprehensive list view of all your recorded discoveries, with powerful filtering and sorting capabilities.</p>
+
+                    <div class="screenshot-container">
+                        <img src="Manual/DetectLogPro%20Manual.fld/image007.png" alt="Finds List View" class="screenshot">
+                        <p class="screenshot-caption">Figure 6: Finds tab showing sortable list with thumbnails</p>
+                    </div>
+
+                    <h3>List Features</h3>
+                    <ul>
+                        <li><strong>Thumbnail View:</strong> See photos of each find at a glance</li>
+                        <li><strong>Sort Options:</strong> Sort by date, type, material, or location</li>
+                        <li><strong>Search:</strong> Full-text search across all find descriptions</li>
+                        <li><strong>Filter:</strong> Filter by date range, find type, or material</li>
+                        <li><strong>Batch Operations:</strong> Select multiple finds for export or deletion</li>
+                    </ul>
+
+                    <h3>Find Details</h3>
+                    <p>Tap any find to view complete details including:</p>
+                    <ul>
+                        <li>Full description and notes</li>
+                        <li>All attached photographs</li>
+                        <li>Precise GPS coordinates</li>
+                        <li>Map view showing exact location</li>
+                        <li>Edit or delete options</li>
+                    </ul>
+
+                    <div class="info-box note-box">
+                        <h4>📌 Data Organization</h4>
+                        <p>Use consistent naming and categorization for your finds to make searching and filtering more effective. Consider creating custom tags for specific locations or projects.</p>
+                    </div>
+                </div>
+
+                <!-- Pictures Tab -->
+                <div id="pictures-tab" class="manual-section">
+                    <h2>Pictures Tab</h2>
+                    <p>The Pictures tab provides a gallery view of all your find photographs, making it easy to review and share your discoveries.</p>
+
+                    <div class="screenshot-container">
+                        <img src="Manual/DetectLogPro%20Manual.fld/image008.png" alt="Pictures Gallery" class="screenshot">
+                        <p class="screenshot-caption">Figure 7: Picture gallery with thumbnail grid view</p>
+                    </div>
+
+                    <h3>Photo Management</h3>
+                    <ul>
+                        <li><strong>Gallery View:</strong> Browse all photos in a grid layout</li>
+                        <li><strong>Full Screen:</strong> Tap any photo for full-screen viewing</li>
+                        <li><strong>Photo Editing:</strong> Crop, rotate, and adjust brightness</li>
+                        <li><strong>Annotations:</strong> Add arrows and labels to highlight features</li>
+                        <li><strong>Export:</strong> Share individual photos or create photo albums</li>
+                    </ul>
+
+                    <h3>Photography Tips</h3>
+                    <div class="info-box tip-box">
+                        <h4>📸 Best Practices</h4>
+                        <ul>
+                            <li>Photograph finds against a neutral background</li>
+                            <li>Include a scale reference (ruler or coin) in the image</li>
+                            <li>Take photos in natural daylight when possible</li>
+                            <li>Capture multiple angles of interesting finds</li>
+                            <li>Clean finds gently before photographing for better detail</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Overlays -->
+                <div id="overlays" class="manual-section">
+                    <h2>Overlays</h2>
+                    <p>Map overlays allow you to layer additional information on top of your base map, including historical maps, LIDAR data, and custom boundaries.</p>
+
+                    <div class="screenshot-container">
+                        <img src="Manual/DetectLogPro%20Manual.fld/image009.png" alt="Map Overlays" class="screenshot">
+                        <p class="screenshot-caption">Figure 8: Multiple overlay layers showing historical maps and boundaries</p>
+                    </div>
+
+                    <h3>Overlay Types</h3>
+                    <p>DetectLogPro supports several overlay types:</p>
+                    <ul>
+                        <li><strong>Historical Maps:</strong> Victorian OS maps, old surveys, and historical charts</li>
+                        <li><strong>LIDAR Data:</strong> Elevation data revealing hidden earthworks</li>
+                        <li><strong>Cadastral Maps:</strong> Property boundaries and field divisions</li>
+                        <li><strong>Custom Overlays:</strong> Import your own georeferenced images</li>
+                        <li><strong>Find Density:</strong> Heat maps showing concentration of finds</li>
+                    </ul>
+
+                    <h3>Managing Overlays</h3>
+                    <ol>
+                        <li>Tap the Overlays icon in the ribbon menu</li>
+                        <li>Toggle overlays on/off with the eye icon</li>
+                        <li>Adjust transparency using the opacity slider</li>
+                        <li>Reorder layers by dragging them</li>
+                        <li>Add new overlays from file or URL</li>
+                    </ol>
+
+                    <div class="info-box tip-box">
+                        <h4>💡 Historical Research</h4>
+                        <p>Overlaying modern satellite imagery with Victorian OS maps can reveal lost settlements, old pathways, and former field boundaries - all excellent indicators of potential detecting sites!</p>
+                    </div>
+                </div>
+
+                <!-- Reports -->
+                <div id="reports" class="manual-section">
+                    <h2>Reports</h2>
+                    <p>DetectLogPro includes powerful reporting features to help you analyze your finds, create documentation, and generate labels for your collection.</p>
+
+                    <div class="screenshot-container">
+                        <img src="Manual/DetectLogPro%20Manual.fld/image010.png" alt="Reports Menu" class="screenshot">
+                        <p class="screenshot-caption">Figure 9: Reports interface with multiple report types available</p>
+                    </div>
+
+                    <h3>Report Types</h3>
+                    <ul>
+                        <li><strong>Find Summary:</strong> Statistical overview of all finds by type, period, and material</li>
+                        <li><strong>Location Report:</strong> Detailed report for a specific detecting location</li>
+                        <li><strong>Date Range Report:</strong> Finds within a specified time period</li>
+                        <li><strong>Photo Album:</strong> Printable photo collection with descriptions</li>
+                        <li><strong>GPS Export:</strong> Export coordinates in GPX or KML format</li>
+                        <li><strong>CSV Export:</strong> Export find data for spreadsheet analysis</li>
+                        <li><strong>PAS Report:</strong> Pre-formatted report for Portable Antiquities Scheme submission</li>
+                    </ul>
+
+                    <h3>Generating Reports</h3>
+                    <ol>
+                        <li>Open the Reports section</li>
+                        <li>Select your desired report type</li>
+                        <li>Configure report parameters (date range, filters, etc.)</li>
+                        <li>Preview the report</li>
+                        <li>Export as PDF, print, or share via email</li>
+                    </ol>
+
+                    <h4 id="2d-label-printing">2D Label Printing</h4>
+                    <p>The 2D Label Printing feature generates professional labels for your finds collection, complete with QR codes for quick database lookup.</p>
+
+                    <div class="screenshot-container">
+                        <img src="Manual/DetectLogPro%20Manual.fld/image011.png" alt="2D Label Printing" class="screenshot">
+                        <p class="screenshot-caption">Figure 10: 2D label printing interface showing barcode and QR code options</p>
+                    </div>
+
+                    <h3>Label Options</h3>
+                    <ul>
+                        <li><strong>Label Size:</strong> Choose from standard sizes (30mm x 15mm, 40mm x 20mm, etc.)</li>
+                        <li><strong>QR Code:</strong> Includes unique identifier linking to find record</li>
+                        <li><strong>Text Fields:</strong> Select which information to display (date, type, location)</li>
+                        <li><strong>Font Size:</strong> Adjustable for different label sizes</li>
+                        <li><strong>Batch Printing:</strong> Print labels for multiple finds at once</li>
+                    </ul>
+
+                    <div class="info-box note-box">
+                        <h4>📌 Label Printer Compatibility</h4>
+                        <p>2D labels are compatible with most thermal and standard printers. For best results with small labels, use a dedicated label printer like Brother QL series or DYMO LabelWriter.</p>
+                    </div>
+                </div>
+
+                <!-- Import from GPKG -->
+                <div id="import-gpkg" class="manual-section">
+                    <h2>Import from GPKG</h2>
+                    <p>DetectLogPro can import GeoPackage (GPKG) files, allowing you to bring in data from GIS applications, other detecting apps, or shared databases.</p>
+
+                    <div class="screenshot-container">
+                        <img src="Manual/DetectLogPro%20Manual.fld/image012.png" alt="GPKG Import" class="screenshot">
+                        <p class="screenshot-caption">Figure 11: Import interface for GeoPackage files</p>
+                    </div>
+
+                    <h3>Import Process</h3>
+                    <ol>
+                        <li>Navigate to Settings > Import/Export</li>
+                        <li>Select "Import from GPKG"</li>
+                        <li>Choose your GPKG file from device storage or cloud</li>
+                        <li>Map GPKG fields to DetectLogPro fields</li>
+                        <li>Preview the import data</li>
+                        <li>Confirm import</li>
+                    </ol>
+
+                    <h3>Field Mapping</h3>
+                    <p>During import, you'll need to map the GPKG columns to DetectLogPro fields:</p>
+                    <ul>
+                        <li><strong>Required:</strong> Longitude, Latitude (or geometry field)</li>
+                        <li><strong>Optional:</strong> Date, Type, Description, Photos</li>
+                        <li><strong>Custom Fields:</strong> Additional columns can be imported as custom attributes</li>
+                    </ul>
+
+                    <div class="info-box warning-box">
+                        <h4>⚠️ Data Validation</h4>
+                        <p>Always preview your import before confirming. Check that coordinates are correct and dates are properly formatted. Invalid data will be flagged for review.</p>
+                    </div>
+
+                    <h3>Supported Geometry Types</h3>
+                    <ul>
+                        <li>Point (individual finds)</li>
+                        <li>LineString (search paths or boundaries)</li>
+                        <li>Polygon (search areas or fields)</li>
+                    </ul>
+                </div>
+
+                <!-- Cloud Sync -->
+                <div id="cloud-sync" class="manual-section">
+                    <h2>Cloud Sync</h2>
+                    <p>Keep your finds synchronized across all your devices with DetectLogPro's cloud sync feature. Your data is securely backed up and available wherever you need it.</p>
+
+                    <h3>Setting Up Cloud Sync</h3>
+                    <ol>
+                        <li>Open Settings > Cloud Sync</li>
+                        <li>Create a PageTech account or sign in</li>
+                        <li>Choose what to sync (finds, photos, settings)</li>
+                        <li>Select sync frequency (manual, daily, or real-time)</li>
+                        <li>Enable sync and wait for initial upload</li>
+                    </ol>
+
+                    <h3>Sync Options</h3>
+                    <ul>
+                        <li><strong>Automatic Sync:</strong> Data syncs whenever changes are made (requires internet)</li>
+                        <li><strong>Manual Sync:</strong> Sync only when you tap the sync button</li>
+                        <li><strong>WiFi Only:</strong> Avoid mobile data usage by syncing only on WiFi</li>
+                        <li><strong>Selective Sync:</strong> Choose specific locations or date ranges to sync</li>
+                    </ul>
+
+                    <div class="info-box tip-box">
+                        <h4>💡 Battery & Data Conservation</h4>
+                        <p>To save battery and mobile data while detecting, enable "WiFi Only" sync. Your finds will be stored locally and uploaded automatically when you return to WiFi coverage.</p>
+                    </div>
+
+                    <h3>Privacy & Security</h3>
+                    <p>Your data is encrypted during transmission and storage. You maintain full control over your data:</p>
+                    <ul>
+                        <li>End-to-end encryption for sensitive location data</li>
+                        <li>Export all data at any time</li>
+                        <li>Delete cloud data completely if desired</li>
+                        <li>Share specific finds or locations without exposing your entire database</li>
+                    </ul>
+
+                    <div class="info-box warning-box">
+                        <h4>⚠️ Account Security</h4>
+                        <p>Use a strong, unique password for your PageTech account. Enable two-factor authentication for additional security, especially if you're documenting valuable finds.</p>
+                    </div>
+
+                    <h3>Conflict Resolution</h3>
+                    <p>If the same find is edited on multiple devices, DetectLogPro will:</p>
+                    <ul>
+                        <li>Automatically merge non-conflicting changes</li>
+                        <li>Alert you to conflicts requiring manual resolution</li>
+                        <li>Show both versions side-by-side for comparison</li>
+                        <li>Allow you to keep one version or merge them manually</li>
+                    </ul>
+                </div>
+
+                <!-- FAQ Section -->
+                <div id="faq" class="manual-section">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <div class="faq-question">Q1: How accurate is the GPS location tracking?</div>
+                            <div class="faq-answer">DetectLogPro uses your device's GPS which is typically accurate to within 5-10 meters in open areas. For more precise location marking, allow the app a few moments to acquire a strong GPS signal before recording a find. Accuracy can be reduced in wooded areas or near tall buildings.</div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Q2: Can I use DetectLogPro offline?</div>
+                            <div class="faq-answer">Yes! DetectLogPro works fully offline. Map tiles are cached automatically as you use them, and all finds are stored locally on your device. You can sync your data to the cloud when you have internet access. We recommend downloading the map areas you plan to detect before heading out.</div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Q3: How much storage space do photos use?</div>
+                            <div class="faq-answer">Photos are automatically optimized for storage while maintaining quality. A typical find photo uses 200-500KB. You can adjust photo quality in Settings > Camera Options. The app will alert you when storage is running low and offer to sync older photos to the cloud to free up space.</div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Q4: Can I export my data to use in other applications?</div>
+                            <div class="faq-answer">Yes, DetectLogPro supports multiple export formats including CSV (for spreadsheets), GPX (for GPS applications), KML (for Google Earth), and GPKG (for GIS software). Go to Settings > Import/Export to access all export options.</div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Q5: Is my find location data private?</div>
+                            <div class="faq-answer">Absolutely. Your location data is stored securely and is never shared without your explicit permission. When using cloud sync, data is encrypted both in transit and at rest. You can also use the app entirely offline if you prefer not to use cloud features.</div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Q6: Can multiple users share a database?</div>
+                            <div class="faq-answer">Yes, you can create shared workspaces that allow multiple detectorists to collaborate. This is perfect for clubs or detecting partners. Each user can add finds, and all data syncs between authorized devices. Manage sharing settings in Settings > Workspace Sharing.</div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Q7: How do I report significant finds to the authorities?</div>
+                            <div class="faq-answer">For UK users, DetectLogPro includes a PAS (Portable Antiquities Scheme) report generator. Select your find and choose "Generate PAS Report" from the Reports menu. This creates a properly formatted report with all required information. For treasure finds, always contact your local Finds Liaison Officer promptly.</div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Q8: What happens if I lose my device?</div>
+                            <div class="faq-answer">If you have cloud sync enabled, all your data is safely backed up. Simply install DetectLogPro on your new device, sign in with your PageTech account, and all your finds will sync automatically. This is another great reason to enable cloud backup!</div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Q9: Can I customize the find categories and fields?</div>
+                            <div class="faq-answer">Yes, DetectLogPro allows you to create custom find types and add custom fields to suit your specific needs. Go to Settings > Custom Fields to add new categories, materials, or any other attributes you want to track. Your custom fields will appear in all relevant screens and reports.</div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Q10: Does DetectLogPro work on both Android and iOS?</div>
+                            <div class="faq-answer">Yes, DetectLogPro is available for both iOS (iPhone and iPad) and Android devices. Your data syncs seamlessly between platforms if you use cloud sync, so you can use an Android phone in the field and review your finds on an iPad at home.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Closing Section -->
+                <div class="manual-section">
+                    <div class="info-box tip-box">
+                        <h4>💬 Need More Help?</h4>
+                        <p>If you have questions not covered in this manual, visit our <a href="support.html" style="color: var(--accent-color); font-weight: 600;">Support page</a> or contact us directly. We're here to help you get the most out of DetectLogPro!</p>
+                        <p style="margin-top: 1rem;">Happy detecting! 🔍</p>
+                    </div>
+                </div>
+
             </div>
-
-            <div class="manual-section">
-                <h2>Recording Finds</h2>
-                <h3>Adding a New Find</h3>
-                <ol>
-                    <li>Tap the "+" button on the main screen</li>
-                    <li>Take or select photos of your find</li>
-                    <li>Enter details such as type, material, and estimated period</li>
-                    <li>Your location will be automatically recorded</li>
-                    <li>Add any additional notes</li>
-                    <li>Save your find to the database</li>
-                </ol>
-
-                <h3>Viewing Your Finds</h3>
-                <p>Access all your recorded finds from the main database view. You can:</p>
-                <ul>
-                    <li>Filter by date, type, or location</li>
-                    <li>Search for specific finds</li>
-                    <li>View finds on a map</li>
-                    <li>Export your data</li>
-                </ul>
-            </div>
-
-            <div class="manual-section">
-                <h2>Advanced Features</h2>
-                <h3>Map View</h3>
-                <p>The map view displays all your finds geographically. Tap any marker to view details of that find.</p>
-
-                <h3>Statistics</h3>
-                <p>View comprehensive statistics about your detecting activities, including:</p>
-                <ul>
-                    <li>Total number of finds</li>
-                    <li>Finds by period</li>
-                    <li>Finds by material</li>
-                    <li>Most productive locations</li>
-                </ul>
-
-                <h3>Exporting Data</h3>
-                <p>Export your finds database in various formats (CSV, PDF) for backup or sharing purposes.</p>
-            </div>
-
-            <div class="manual-section">
-                <h2>Settings</h2>
-                <p>Customize DetectPro to your preferences:</p>
-                <ul>
-                    <li>Display units (metric/imperial)</li>
-                    <li>Date format</li>
-                    <li>Privacy settings</li>
-                    <li>Data backup options</li>
-                    <li>Notification preferences</li>
-                </ul>
-            </div>
-
-            <div class="manual-section">
-                <h2>Tips and Best Practices</h2>
-                <ul>
-                    <li>Always record finds immediately while details are fresh</li>
-                    <li>Take clear, well-lit photos from multiple angles</li>
-                    <li>Be accurate with location data for future reference</li>
-                    <li>Regularly backup your data</li>
-                    <li>Keep the app updated for the latest features and improvements</li>
-                </ul>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="support.html" class="btn btn-secondary">Back to Support</a>
-                <a href="faq.html" class="btn btn-primary">View FAQs</a>
-            </div>
-        </div>
+        </section>
     </main>
 
     <footer>
@@ -158,5 +788,42 @@
             <p><a href="privacy.html" style="color: var(--accent-color); text-decoration: none;">Privacy Policy</a></p>
         </div>
     </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
