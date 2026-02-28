@@ -435,6 +435,70 @@ section {
     margin-bottom: 2rem;
 }
 
+/* Feature Showcase (DetectLogPro page) */
+.feature-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+}
+
+.feature-showcase {
+    margin-top: 4rem;
+}
+
+.feature-row {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.feature-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-image {
+    flex: 1;
+    min-width: 0;
+}
+
+.feature-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+.feature-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.feature-text h2 {
+    font-size: 1.8rem;
+    color: var(--dark-brown);
+    margin-bottom: 1rem;
+}
+
+.feature-text p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .feature-row,
+    .feature-row-reverse {
+        flex-direction: column;
+    }
+
+    .feature-image img {
+        max-width: 100%;
+    }
+}
+
 /* Footer */
 footer {
     background-color: var(--dark-brown);

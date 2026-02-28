@@ -35,66 +35,128 @@
 
         <section class="product-info">
             <div class="container">
-                <div class="coming-soon-banner">
-                    <svg class="metal-detector-graphic" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="sunsetGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#E8C590;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#D4A574;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="60" cy="60" r="55" fill="url(#sunsetGradient)" opacity="0.3"/>
-                        <g transform="translate(20, 20)">
-                            <path d="M 40 30 Q 42 25, 45 30 L 42 37 Q 40 33, 40 30" fill="#3D2817"/>
-                            <ellipse cx="42.5" cy="33" rx="6" ry="8" fill="#3D2817"/>
-                            <path d="M 35 33 Q 32 29, 30 33 Q 32 37, 35 35 Z" fill="#3D2817"/>
-                            <rect x="38" y="41" width="9" height="20" rx="2" fill="#3D2817"/>
-                            <path d="M 42.5 41 L 50 48 L 48 58 L 44 62 Z" fill="#3D2817"/>
-                            <path d="M 42.5 41 L 35 48 L 32 55 L 36 62 Z" fill="#3D2817"/>
-                            <rect x="38" y="61" width="5" height="16" rx="2" fill="#3D2817"/>
-                            <rect x="43" y="61" width="5" height="13" rx="2" fill="#3D2817"/>
-                            <ellipse cx="40.5" cy="78" rx="4" ry="5" fill="#3D2817"/>
-                            <ellipse cx="45.5" cy="75" rx="4" ry="5" fill="#3D2817"/>
-                            <path d="M 32 55 L 28 58 L 20 88 L 23 90 Z" fill="#3D2817"/>
-                            <ellipse cx="21.5" cy="90" rx="6" ry="2.5" fill="#3D2817"/>
-                            <path d="M 30 33 Q 25 32, 24 36 Q 27 40, 30 38 Z" fill="#3D2817"/>
-                        </g>
-                    </svg>
-                    <h2>Coming Soon</h2>
-                    <p>We're hard at work developing DetectLogPro to bring you the best metal detecting companion app.</p>
+
+                <!-- Intro -->
+                <div class="feature-intro">
+                    <p>DetectLogPro is an advanced tool for Metal Detectorists giving you a place to record and manage your finds, and with the <strong>Premium</strong> upgrade, plan trips using historic maps and Lidar, print reports and labels, and sync everything to Google&nbsp;Drive.</p>
                 </div>
 
-                <div class="product-details">
-                    <h2>What to Expect</h2>
-                    <div class="details-grid">
-                        <div class="detail-card">
-                            <h3>🗺️ Location Tracking</h3>
-                            <p>Keep detailed records of your detecting sites and discoveries</p>
-                        </div>
-                        <div class="detail-card">
-                            <h3>🗺️ Reporting</h3>
-                            <p>Print finds labels and other reports</p>
-                        </div>
-                        <div class="detail-card">
-                            <h3>📊 Find Analysis</h3>
-                            <p>Support for Portable Antiquities Scheme reporting</p>
-                        </div>
-                        <div class="detail-card">
-                            <h3>🔍 Smart Detection</h3>
-                            <p>Historic Maps and Lidar Integration</p>
-                        </div>
-                        <div class="detail-card">
-                            <h3>☁️ Cloud Sync</h3>
-                            <p>Access your data across all your devices seamlessly</p>
-                        </div>
+                <!-- Feature highlights grid -->
+                <div class="details-grid" style="margin-top: 2rem;">
+                    <div class="detail-card">
+                        <h3>🗺️ Interactive Maps</h3>
+                        <p>See all your finds plotted where you found them, with route tracking, filtering and multiple map types</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>🔍 Lidar &amp; Historic Maps</h3>
+                        <p>Overlay MBTiles Lidar data and NLS historic OS maps to discover hidden earthworks and old settlements</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>📋 Reports &amp; Labels</h3>
+                        <p>Generate reports, hashtag counts, PAS totals and print 2D barcode labels for your collection</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>☁️ Google Drive Sync</h3>
+                        <p>Back up and share your database across devices via your own Google&nbsp;Drive folder</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>⌚ Apple Watch</h3>
+                        <p>Add finds by voice and view your map — including Lidar overlays — right from your wrist</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>📷 Photo Gallery</h3>
+                        <p>Browse all your find photos in one place, tap to jump straight to the record</p>
                     </div>
                 </div>
 
-                <div class="cta-section">
-                    <h2>Stay Updated</h2>
-                    <p>Be the first to know when DetectLogPro launches</p>
-                    <a href="index.html#contact" class="btn btn-primary">Notify Me</a>
+                <!-- Feature Showcase Sections -->
+                <div class="feature-showcase">
+
+                    <!-- Maps -->
+                    <div class="feature-row">
+                        <div class="feature-image">
+                            <img src="Manual/DetectLogPro%20Manual.fld/image002.png" alt="DetectLogPro map screen — desktop view">
+                        </div>
+                        <div class="feature-text">
+                            <h2>Powerful Map Interface</h2>
+                            <p>The map screen is the heart of DetectLogPro. Browse finds as thumbnails right where you found them, toggle Lidar overlays, track your route, and filter by date, type or hashtag. Works beautifully on phones, tablets and desktop.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mobile + Lidar -->
+                    <div class="feature-row feature-row-reverse">
+                        <div class="feature-image">
+                            <img src="Manual/DetectLogPro%20Manual.fld/image009.png" alt="Lidar overlay on map">
+                        </div>
+                        <div class="feature-text">
+                            <h2>Lidar &amp; Historic Map Overlays</h2>
+                            <p>Import MBTiles files generated from DEFRA survey data or other sources and overlay them on any custom map. Reveal hidden field boundaries, old pathways and earthworks invisible to the naked eye. Add up to six custom NLS historic OS maps for unrivalled trip planning.</p>
+                        </div>
+                    </div>
+
+                    <!-- Finds & Pictures -->
+                    <div class="feature-row">
+                        <div class="feature-image">
+                            <img src="Manual/DetectLogPro%20Manual.fld/image007.png" alt="Finds list" style="max-width: 280px;">
+                        </div>
+                        <div class="feature-text">
+                            <h2>Organise Your Finds</h2>
+                            <p>Search, sort and manage every discovery. Long-press to select multiple finds for batch reporting. The smart search recognises both text and find ID. Deleted finds can be recovered until your next sync.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pictures -->
+                    <div class="feature-row feature-row-reverse">
+                        <div class="feature-image">
+                            <img src="Manual/DetectLogPro%20Manual.fld/image008.png" alt="Pictures gallery" style="max-width: 300px;">
+                        </div>
+                        <div class="feature-text">
+                            <h2>Photo Gallery</h2>
+                            <p>Browse every photo across all your finds in one beautiful gallery. Tap a picture to jump straight to the full record. Images lazy-load to keep things snappy, even with thousands of finds.</p>
+                        </div>
+                    </div>
+
+                    <!-- Reports & Labels -->
+                    <div class="feature-row">
+                        <div class="feature-image">
+                            <img src="Manual/DetectLogPro%20Manual.fld/image010.png" alt="Reports screen" style="max-width: 280px;">
+                        </div>
+                        <div class="feature-text">
+                            <h2>Reports &amp; 2D Label Printing</h2>
+                            <p>View hashtag and PAS counts, generate standard reports, and print professional 3&times;7 labels complete with scannable QR codes that link straight back to the find record in the app. Fully configurable for different printers and label stock.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cloud Sync -->
+                    <div class="feature-row feature-row-reverse">
+                        <div class="feature-image">
+                            <img src="Manual/DetectLogPro%20Manual.fld/image012.png" alt="Cloud sync settings" style="max-width: 280px;">
+                        </div>
+                        <div class="feature-text">
+                            <h2>Google Drive Cloud Sync</h2>
+                            <p>Connect to your Google Drive to back up your entire database. Share the DetectLogProSync folder with detecting partners — their finds appear on your map with a blue surround. Export or import everything in one tap.</p>
+                        </div>
+                    </div>
+
+                    <!-- Apple Watch -->
+                    <div class="feature-row">
+                        <div class="feature-image" style="font-size: 5rem; text-align: center; padding: 2rem;">⌚</div>
+                        <div class="feature-text">
+                            <h2>Apple Watch App</h2>
+                            <p>Leave your phone in your pocket — add finds using voice dictation straight from your Apple Watch, even with muddy gloves! The watch also mirrors your current map view, including Lidar overlays, so you always know where you are.</p>
+                        </div>
+                    </div>
+
                 </div>
+
+                <!-- CTA -->
+                <div class="cta-section">
+                    <h2>Get Started</h2>
+                    <p>Download DetectLogPro and start recording your finds today</p>
+                    <a href="manual.html" class="btn btn-primary" style="margin-right: 1rem;">Read the Manual</a>
+                    <a href="support.html" class="btn btn-primary">Get Support</a>
+                </div>
+
             </div>
         </section>
     </main>
