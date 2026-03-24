@@ -325,6 +325,165 @@ section {
     font-size: 1rem;
 }
 
+/* Video Tutorials Section */
+.video-tutorials-section {
+    background-color: var(--light-bg);
+}
+
+.video-tutorials-section h2 {
+    font-size: 2.5rem;
+    color: var(--dark-brown);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.video-tutorials-section > .container > p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+}
+
+.video-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.85rem;
+}
+
+.video-table thead th {
+    text-align: left;
+    padding: 0.25rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.video-table thead th:first-child {
+    width: 260px;
+}
+
+.video-table tbody td {
+    background: white;
+    padding: 1.25rem;
+    vertical-align: middle;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.video-table tbody tr:hover td {
+    box-shadow: 0 6px 20px var(--shadow);
+    transform: translateY(-2px);
+}
+
+.video-table tbody td.video-thumb-cell {
+    border-radius: 12px 0 0 12px;
+    width: 260px;
+}
+
+.video-table tbody td.video-desc {
+    border-radius: 0 12px 12px 0;
+    padding-left: 2rem;
+}
+
+.yt-thumb-wrap {
+    position: relative;
+    display: inline-block;
+    border-radius: 8px;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.yt-thumbnail {
+    display: block;
+    width: 220px;
+    height: 124px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.2s ease;
+}
+
+.yt-thumb-wrap:hover .yt-thumbnail {
+    opacity: 0.85;
+}
+
+.yt-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(220, 30, 30, 0.88);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    padding-left: 3px;
+    pointer-events: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.yt-thumb-wrap:hover .yt-play-btn {
+    background: rgba(220, 30, 30, 1);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-desc h3 {
+    font-size: 1.2rem;
+    color: var(--dark-brown);
+    margin-bottom: 0.6rem;
+}
+
+.video-desc p {
+    color: var(--text-light);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+    .video-table,
+    .video-table thead,
+    .video-table tbody,
+    .video-table tr,
+    .video-table td,
+    .video-table th {
+        display: block;
+    }
+    .video-table thead {
+        display: none;
+    }
+    .video-table tbody td.video-thumb-cell,
+    .video-table tbody td.video-desc {
+        border-radius: 0;
+        width: 100%;
+        box-shadow: none;
+        transform: none;
+        padding: 0.75rem 1rem;
+    }
+    .video-table tbody td.video-thumb-cell {
+        border-radius: 12px 12px 0 0;
+        padding-bottom: 0;
+    }
+    .video-table tbody td.video-desc {
+        border-radius: 0 0 12px 12px;
+        padding-left: 1rem;
+        box-shadow: 0 4px 10px var(--shadow);
+    }
+    .video-table tbody tr:hover td {
+        transform: none;
+    }
+    .yt-thumbnail {
+        width: 100%;
+        height: auto;
+    }
+}
+
 /* Contact Section */
 .contact-section {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
