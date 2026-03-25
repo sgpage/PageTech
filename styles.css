@@ -131,13 +131,15 @@ nav {
 /* Hero Section */
 .hero {
     position: relative;
-    min-height: 85vh;
+    height: 52vh;
+    min-height: 320px;
+    max-height: 520px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(255,249,240,0.85) 0%, rgba(232,197,144,0.85) 100%),
-               url('images/paywall_hero.png') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(255,249,240,0.75) 0%, rgba(232,197,144,0.75) 100%),
+               url('images/paywall_hero.png') center 30%/cover no-repeat;
 }
 
 .hero-background {
@@ -169,16 +171,16 @@ nav {
 .hero-content {
     text-align: center;
     z-index: 10;
-    padding: 2rem;
+    padding: 1rem 2rem;
 }
 
 .icon-container {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .detector-icon {
-    width: 150px;
-    height: 150px;
+    width: 90px;
+    height: 90px;
     filter: drop-shadow(0 10px 20px var(--shadow));
     animation: float 3s ease-in-out infinite;
 }
@@ -193,17 +195,17 @@ nav {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 2.6rem;
     color: var(--dark-brown);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-weight: 800;
     line-height: 1.2;
 }
 
 .tagline {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--text-light);
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     font-weight: 300;
 }
 
@@ -595,13 +597,85 @@ section {
 }
 
 /* Feature Showcase (DetectLogPro page) */
+.intro-with-download {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
 .feature-intro {
-    text-align: center;
+    flex: 1;
     font-size: 1.2rem;
     color: var(--text-dark);
-    max-width: 800px;
-    margin: 0 auto 2rem;
     line-height: 1.8;
+}
+
+.download-card {
+    flex: 0 0 auto;
+    background: var(--primary-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    min-width: 220px;
+}
+
+.download-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark-brown);
+    margin: 0 0 1rem;
+}
+
+.store-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.store-badge {
+    height: 44px;
+    width: auto;
+    display: block;
+}
+
+.store-badge-google {
+    height: 65px;
+    margin: -10px 0;
+}
+
+.store-badges-cta {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.store-badges-cta .store-badge {
+    height: 50px;
+}
+
+.store-badges-cta .store-badge-google {
+    height: 74px;
+    margin: -12px 0;
+}
+
+@media (max-width: 768px) {
+    .intro-with-download {
+        flex-direction: column;
+    }
+
+    .download-card {
+        width: 100%;
+    }
+
+    .store-badges-cta {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .feature-showcase {
