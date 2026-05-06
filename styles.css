@@ -6,14 +6,14 @@
 }
 
 :root {
-    --primary-color: #E8C590;
-    --secondary-color: #D4A574;
-    --accent-color: #B8935A;
-    --dark-brown: #3D2817;
-    --light-bg: #FFF9F0;
-    --text-dark: #2C1810;
-    --text-light: #6B4423;
-    --shadow: rgba(61, 40, 23, 0.1);
+    --primary-color: #F5C518;
+    --secondary-color: #E8A800;
+    --accent-color: #C87800;
+    --dark-brown: #1A1000;
+    --light-bg: #FFFBEA;
+    --text-dark: #1C1000;
+    --text-light: #5C3D00;
+    --shadow: rgba(26, 16, 0, 0.15);
 }
 
 body {
@@ -138,7 +138,7 @@ nav {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(255,249,240,0.75) 0%, rgba(232,197,144,0.75) 100%),
+    background: linear-gradient(135deg, rgba(255,251,234,0.70) 0%, rgba(245,197,24,0.70) 100%),
                url('images/paywall_hero.png') center 30%/cover no-repeat;
 }
 
@@ -504,7 +504,7 @@ section {
 
 /* Product Pages */
 .product-hero {
-    background: linear-gradient(135deg, rgba(232,197,144,0.85), rgba(212,165,116,0.85)),
+    background: linear-gradient(135deg, rgba(245,197,24,0.85), rgba(232,168,0,0.85)),
                url('images/paywall_hero.png') center/cover no-repeat;
     padding: 6rem 0 4rem;
     text-align: center;
@@ -734,7 +734,7 @@ section {
 
 /* Footer */
 footer {
-    background-color: var(--dark-brown);
+    background-color: #1A1000;
     color: var(--primary-color);
     text-align: center;
     padding: 2rem;
