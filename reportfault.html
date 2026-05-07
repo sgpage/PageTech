@@ -328,9 +328,7 @@
 
             try {
                 // Submit to Netlify function (hosted separately from GitHub Pages)
-                const functionUrl = window.location.hostname === 'localhost' 
-                    ? '/.netlify/functions/submit-fault-report'
-                    : 'https://fluffy-churros-308a88.netlify.app/.netlify/functions/submit-fault-report';
+                const functionUrl = '/.netlify/functions/submit-fault-report';
                 
                 console.log('Submitting to:', functionUrl);
                 console.log('Report data:', report);
