@@ -201,10 +201,8 @@
             };
 
             try {
-                // Submit to Netlify function
-                const functionUrl = window.location.hostname === 'localhost' 
-                    ? '/.netlify/functions/submit-contact'
-                    : 'https://fluffy-churros-308a88.netlify.app/.netlify/functions/submit-contact';
+                // Submit to Netlify function (same-origin — works on localhost and production)
+                const functionUrl = '/.netlify/functions/submit-contact';
                 
                 console.log('Submitting to:', functionUrl);
                 console.log('Message data:', message);
