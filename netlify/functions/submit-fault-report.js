@@ -1,7 +1,6 @@
 // Netlify Function for DetectLogPro Fault Reporting
 // Automatically creates GitHub Issues and sends email notifications
-
-const fetch = require('node-fetch');
+// Uses native fetch (Node 18+)
 
 exports.handler = async (event, context) => {
   // Set CORS headers to allow requests from GitHub Pages
@@ -105,35 +104,36 @@ _This issue was automatically created from the DetectLogPro fault reporting form
     const issue = await githubResponse.json();
     console.log('GitHub issue created:', issue.number);
 
-    // Send email notification using SendGrid
-    try {
-      const emailResponse = await fetch('https://api.sendgrid.com/v3/mail/send', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${process.env.SENDGRID_API_KEY}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          personalizations: [{
-            to: [{ email: process.env.NOTIFICATION_EMAIL }],
-            subject: `🔧 New DetectLogPro Fault Report: ${data.impact.toUpperCase()}`
-          }],
-          from: { 
-            email: 'noreply@pagetech.com', 
-            name: 'DetectLogPro Support' 
+    // Send email notification using SendGrid (optional)
+    if (process.env.SENDGRID_API_KEY && process.env.NOTIFICATION_EMAIL) {
+      try {
+        const emailResponse = await fetch('https://api.sendgrid.com/v3/mail/send', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.SENDGRID_API_KEY}`,
+            'Content-Type': 'application/json'
           },
-          content: [{
-            type: 'text/html',
-            value: `
+          body: JSON.stringify({
+            personalizations: [{
+              to: [{ email: process.env.NOTIFICATION_EMAIL }],
+              subject: `🔧 New DetectLogPro Fault Report: ${data.impact.toUpperCase()}`
+            }],
+            from: {
+              email: 'noreply@pagetech.com',
+              name: 'DetectLogPro Support'
+            },
+            content: [{
+              type: 'text/html',
+              value: `
               <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                 <h2 style="color: #3D2817;">New Fault Report Submitted</h2>
-                
+
                 <div style="background: #FFF9F0; padding: 15px; border-radius: 8px; margin: 20px 0;">
-                  <p><strong>GitHub Issue:</strong> 
+                  <p><strong>GitHub Issue:</strong>
                     <a href="${issue.html_url}" style="color: #B8935A;">#${issue.number}</a>
                   </p>
                   <p><strong>Reporter:</strong> ${data.name}${data.email ? ` (${data.email})` : ''}</p>
-                  <p><strong>Impact:</strong> 
+                  <p><strong>Impact:</strong>
                     <span style="color: ${
                       data.impact === 'critical' ? '#d32f2f' :
                       data.impact === 'high' ? '#f57c00' :
@@ -163,7 +163,7 @@ _This issue was automatically created from the DetectLogPro fault reporting form
                 ` : ''}
 
                 <div style="margin-top: 30px; padding: 20px; background: #E8C590; border-radius: 8px; text-align: center;">
-                  <a href="${issue.html_url}" 
+                  <a href="${issue.html_url}"
                      style="display: inline-block; padding: 12px 24px; background: #3D2817; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
                     View Full Issue on GitHub
                   </a>
@@ -174,20 +174,21 @@ _This issue was automatically created from the DetectLogPro fault reporting form
                 </p>
               </div>
             `
-          }]
-        })
-      });
+            }]
+          })
+        });
 
-      if (!emailResponse.ok) {
-        const emailError = await emailResponse.text();
-        console.error('Email send failed:', emailError);
-        // Don't fail the whole request if email fails
-      } else {
-        console.log('Email notification sent successfully');
+        if (!emailResponse.ok) {
+          const emailError = await emailResponse.text();
+          console.error('Email send failed:', emailError);
+          // Don't fail the whole request if email fails
+        } else {
+          console.log('Email notification sent successfully');
+        }
+      } catch (emailError) {
+        console.error('Email error:', emailError);
+        // Continue even if email fails
       }
-    } catch (emailError) {
-      console.error('Email error:', emailError);
-      // Continue even if email fails
     }
 
     return {

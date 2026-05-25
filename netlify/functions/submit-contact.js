@@ -1,7 +1,6 @@
 // Netlify Function for PageTech Contact Form
 // Automatically creates GitHub Issues
-
-const fetch = require('node-fetch');
+// Uses native fetch (Node 18+)
 
 exports.handler = async (event, context) => {
   // Set CORS headers to allow requests from GitHub Pages
