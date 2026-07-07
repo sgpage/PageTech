@@ -1,5 +1,11 @@
 # PageTech - DetectLogPro Support System
 
+Site is hosted on Github
+Domain is now managed on Netlify (logon with Github credentials) (as of 7/7/26)
+GoDaddy is where domain payment needs to go.
+
+
+
 Professional website for PageTech featuring DetectLogPro, the ultimate tech tool for metal detectorists. Includes a comprehensive automated support system with fault reporting.
 
 ## 🌟 Features
