@@ -1,5 +1,7 @@
 # Netlify Functions Setup Guide
 
+
+***** I am logged into Netifly via GitHub auth!!! ************
 This guide explains how to set up Netlify to host **only the backend functions** while keeping your main site on GitHub Pages.
 
 ## Why This Setup?

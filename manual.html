@@ -399,7 +399,7 @@
                 <!-- Custom URL Maps -->
                 <div id="url-maps" class="manual-section">
                     <h2>4. Custom 'URL' Maps</h2>
-                    <p>In the Settings screen it is possible to add your own custom maps using XYZ format URL's. In the UK, the best source is the National Library of Scotland MapTiler service (<a href="https://cloud.maptiler.com/tiles/" target="_blank" style="color: var(--accent-color);">https://cloud.maptiler.com/tiles/</a>) where you can sign up for free and copy the URL into the URL field on the settings form (latest release has a 'wizard' button that will prompt you to obtain a API key from NLS and then if pasted into the wizard will automatically configure the maps).</p>
+                    <p>In the Settings screen it is possible to add your own custom maps using XYZ format URL's. In the UK, the best source is the National Library of Scotland MapTiler service (<a href="https://cloud.maptiler.com/tiles/" target="_blank" style="color: var(--accent-color);">https://cloud.maptiler.com/tiles/</a>) where you can sign up for free and copy the URL into the URL field on the settings form. For UK residents the best option though is to use the 'wizard' button that will prompt you to obtain a API key from NLS and then if pasted into the wizard will automatically configure the maps. The API key (a sort of password) can be copied and pasted from here (<a href="https://cloud.maptiler.com/account/keys/ target="_blank" style="color: var(--accent-color);">https://cloud.maptiler.com/account/keys</a>). </p>
 
                     <div class="screenshot-container">
                         <img src="Manual/DetectLogPro%20Manual.fld/image004.png" alt="NLS MapTiler Maps" class="screenshot">
@@ -407,8 +407,19 @@
                     </div>
 
                     <p>You can add up to nine custom maps and toggle their availability on/off to make visible in the Map screen menu drop down (note depending on your phone the menu could grow to be bigger than the screen, but it will be scrollable).</p>
-                    <p> The simplest method is to use the wizard button in the settings screen, which will guide you through obtaining an API key and configuring the maps automatically.</p>
+                    <p> The wizard though will automatically add seven of these and add Google Hybrid (althouh it is already present in the maps above, as a custom add on it allows you to view overlays such as Lidar over it.</p>
                         <tr>
+                            <td class="video-thumb-cell">
+                                <a href="https://youtu.be/XJJjOhKQ5ow" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
+                                    <div class="yt-thumb-wrap">
+                                        <img src="https://img.youtube.com/vi/XJJjOhKQ5ow/hqdefault.jpg" alt="Video tutorial thumbnail" class="yt-thumbnail">
+                                        <div class="yt-play-btn" aria-hidden="true">&#9654;</div>
+                                    </div>
+                                </a>
+                            </td>
+
+                        </tr>
+                    <tr>
                             <td class="video-thumb-cell">
                                 <a href="https://youtu.be/XJJjOhKQ5ow" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
                                     <div class="yt-thumb-wrap">
@@ -475,14 +486,16 @@
                         <img src="Manual/DetectLogPro%20Manual.fld/image009.png" alt="Lidar Overlay on Map" class="screenshot">
                         <p class="screenshot-caption">Figure 8: Lidar overlay on the Map screen</p>
                     </div>
+                    <p>Version 3.0.0 of the app now introduces the ability to import LiDAR directly from the DEFRA site using server processing in the cloud. This is extremly simple and just involves pointing at a spot on a map where you need the Lidar tile. You are given the option to change settings of light direction and Z factor (elevation exaggeration). Default is for a punchy effect (Z=8) as this brings out features better for Detectorists. This is far superior to most LiDAR available online!</p>
+                    <p>To restrict excessive use, a fair use limit of 25 conversions a month has been set. This hopefully should be more than enough for normal use.</p>
+                    <p>It is also possible to use other methods to create MBTiles files. These can be exported from the excellent open source QGIS application. QGIS does allow you add extra views such as slope analysis and least cost path tracks.</p>
+                    <p>You can also download from the PageTech website a simple tool that will convert TIF files downloaded from the UK DEFRA website (as seen above). For a detailed description of how to download and convert a Lidar tile from DEFRA see <a href="#appendix-a" style="color: var(--accent-color); font-weight: 600;">Appendix A – Generating MBTiles Files</a>.</p>
 
-                    <p>The app can support overlays in the format of MBTiles files. These can be exported from the excellent open source QGIS application. You can also download from the PageTech website a simple tool that will convert TIF files downloaded from the UK DEFRA website (as seen above). For a detailed description of how to download and convert a Lidar tile from DEFRA see <a href="#appendix-a" style="color: var(--accent-color); font-weight: 600;">Appendix A – Generating MBTiles Files</a>.</p>
-
-                    <p>You can also load waypoint and field map files in the form of GPX files or URL's that you can create on http://gridreferencefinder.com.</p>
+                    <p>Waypoint and field map files in the form of GPX files or URL's that you can create on http://gridreferencefinder.com can also be loaded. These are useful for marking fields out, especially on a rally, or putting markers where hisotoric features have been discovered (you can find these out on the Heritage Gateway for your county).</p>
 
                     <div class="info-box tip-box">
                         <h4>💡 iPhone Tip</h4>
-                        <p>On iPhone the file explorer is a bit 'interesting' and you will need to press the '&lt;' at the top left of the screen to move up from the app's storage folder to be able to see the rest of your device and cloud storage locations.</p>
+                        <p>On iPhone the file explorer is a bit 'interesting' and you will need to press the '&lt;' at the top left of the screen to move up from the app's storage folder to be able to see the rest of your device and cloud storage locations when trying to locate a downloaded MBTiles or GPX file.</p>
                     </div>
                 </div>
 
@@ -518,13 +531,13 @@
 
                     <h3 id="Brother P-touch Cube PT710BT Support">Brother P-touch Cube PT710BT Support (iOS only)</h3>
 
-                    <p>DetectLogPro has been tested to work with the Brother P-touch Cube PT710BT printer (iOS only). To connect, ensure your printer is powered on and in Bluetooth pairing mode. Then after having selected some finds on the Finds tab, and selecting the Brother P Cube option in Reports you will be prompted to select the printer (note this is NOT fast). This option also allows you select what gets printed on the label, but note due to the dimensions of these labels (you need the 24mm ones) it can only support 3 or 4 fields. </p>
+                    <p>DetectLogPro has been tested to work with the Brother P-touch Cube PT710BT printer (currently iOS only). To connect, ensure your printer is powered on and in Bluetooth pairing mode. Then after having selected some finds on the Finds tab, and selecting the Brother P Cube option in Reports you will be prompted to select the printer (note this is NOT fast). This option also allows you select what gets printed on the label, but note due to the dimensions of these labels (you need the 24mm ones) it can only support 3 or 4 fields. </p>
                 </div>
 
                 <!-- Import from GPKG -->
                 <div id="import-gpkg" class="manual-section">
                     <h2>9. Import from GPKG</h2>
-                    <p>It is possible to import your finds from other apps that support export to GPKG (these contain the finds record and photos). For desktop and Android this can be done via the section in the Settings screen. iOS devices you will need to use the Apple Files app to find your export and share with DetectLogPro. It is possible to select more than one GPKG file at a time. The app will not allow you to import the same file twice, so it is safe.</p>
+                    <p>It is possible to import your finds from other apps such as GoTerrain that support export to GPKG (these contain the finds record and photos). For desktop and Android this can be done via the section in the Settings screen. iOS devices you will need to use the Apple Files app to find your export and share with DetectLogPro. It is possible to select more than one GPKG file at a time. The app will not allow you to import the same file twice, so it is safe.</p>
 
                     <div class="info-box note-box">
                         <h4>📌 iPhone Tip</h4>
