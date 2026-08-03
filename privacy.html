@@ -119,7 +119,7 @@
     <main>
         <div class="privacy-content">
             <h1>Privacy Policy for DetectPro</h1>
-            <p class="last-updated"><strong>Last Updated: February 28, 2026</strong></p>
+            <p class="last-updated"><strong>Last Updated: August 3, 2026</strong></p>
 
             <h2>Introduction</h2>
             <p>DetectPro ("we," "our," or "the app") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our metal detecting application.</p>
@@ -320,6 +320,15 @@
                 <li><strong>How it works:</strong> RevenueCat acts as a secure intermediary between the app and Apple App Store / Google Play to validate purchases and manage subscription entitlements. It does not receive or store any of your metal detecting data.</li>
             </ul>
 
+            <h3>PostHog</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Anonymous product analytics, used to understand which features are used and to improve the app</li>
+                <li><strong>Data accessed:</strong> A randomly generated anonymous device/installation ID, the events you trigger (e.g. "find created", "map opened", "export used"), basic device/app metadata (platform, app version, screen size)</li>
+                <li><strong>Data NOT accessed:</strong> Your name, email, GPS coordinates, photos, find descriptions, or any other personal or detecting content</li>
+                <li><strong>Hosting:</strong> Data is processed and stored on PostHog's EU cloud infrastructure (eu.posthog.com)</li>
+                <li><strong>Privacy Policy:</strong> <a href="https://posthog.com/privacy" target="_blank">https://posthog.com/privacy</a></li>
+            </ul>
+
             <h2>Your Rights and Controls</h2>
             <p>You have complete control over your data:</p>
 
@@ -411,15 +420,21 @@
                 <li>We do not operate any servers that store or process your data</li>
             </ul>
 
-            <h2>No Analytics or Tracking</h2>
+            <h2>Analytics</h2>
+            <p>DetectPro uses <strong>PostHog</strong> to collect anonymous, aggregated usage analytics that help us understand how the app's features are used so we can improve it. This is:</p>
+            <ul>
+                <li><strong>Anonymous:</strong> Events are linked to a randomly generated device ID, not to your name, email, or any personal identity</li>
+                <li><strong>Feature-focused:</strong> We track which screens and features are used (e.g. opening the map, recording a find, exporting a report) - not the content of your finds</li>
+                <li><strong>Not location-based:</strong> Your GPS coordinates, find descriptions, photos, and PAS references are never sent to PostHog</li>
+                <li><strong>Not for advertising:</strong> We do not use analytics data for advertising, ad targeting, or selling to third parties</li>
+            </ul>
             <p>DetectPro does <strong>NOT</strong> include:</p>
             <ul>
-                <li>Analytics or usage tracking</li>
                 <li>Advertising or ad networks</li>
-                <li>User behavior monitoring</li>
+                <li>Cross-app or cross-site user tracking</li>
                 <li>Crash reporting tools that send data to us</li>
             </ul>
-            <p><strong>Note:</strong> RevenueCat collects minimal anonymous data solely for subscription management (see Third-Party Services above). This is not used for analytics, advertising, or user profiling.</p>
+            <p><strong>Note:</strong> RevenueCat also collects minimal anonymous data solely for subscription management (see Third-Party Services above). This is separate from PostHog analytics and is not used for advertising or user profiling.</p>
 
             <h2>GDPR Compliance (European Users)</h2>
             <p>If you are in the European Economic Area (EEA), you have additional rights under GDPR:</p>
@@ -480,9 +495,9 @@
                     <li>Everything works offline - no internet required</li>
                     <li>Optional cloud sync uploads only to YOUR Google Drive</li>
                     <li>Subscriptions are managed by RevenueCat using only anonymous IDs — they never see your finds, photos, or location</li>
-                    <li>We never see or store your data on our servers</li>
+                    <li>We never see or store your finds, photos, or location data on our servers</li>
                     <li>You can delete everything at any time</li>
-                    <li>No ads, no tracking, no analytics</li>
+                    <li>We use anonymous usage analytics (PostHog) to see which features are used - no ads, no personal tracking</li>
                 </ul>
                 <p><strong>Your privacy is important to us. DetectPro is built privacy-first, keeping your detecting adventures private and secure.</strong></p>
             </div>
