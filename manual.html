@@ -399,7 +399,7 @@
                 <!-- Custom URL Maps -->
                 <div id="url-maps" class="manual-section">
                     <h2>4. Custom 'URL' Maps</h2>
-                    <p>In the Settings screen it is possible to add your own custom maps using XYZ format URL's. In the UK, the best source is the National Library of Scotland MapTiler service (<a href="https://cloud.maptiler.com/tiles/" target="_blank" style="color: var(--accent-color);">https://cloud.maptiler.com/tiles/</a>) where you can sign up for free and copy the URL into the URL field on the settings form. For UK residents the best option though is to use the 'wizard' button that will prompt you to obtain a API key from NLS and then if pasted into the wizard will automatically configure the maps. The API key (a sort of password) can be copied and pasted from here (<a href="https://cloud.maptiler.com/account/keys/ target="_blank" style="color: var(--accent-color);">https://cloud.maptiler.com/account/keys</a>). </p>
+                    <p>UK Historic OS maps from v5.0.0 are now pre-configured but not in the Settings screen it is possible to add your own custom maps using XYZ format URL's. In the UK, the best source is the National Library of Scotland MapTiler service (<a href="https://cloud.maptiler.com/tiles/" target="_blank" style="color: var(--accent-color);">https://cloud.maptiler.com/tiles/</a>) where you can sign up for free and copy the URL into the URL field on the settings form.  </p>
 
                     <div class="screenshot-container">
                         <img src="Manual/DetectLogPro%20Manual.fld/image004.png" alt="NLS MapTiler Maps" class="screenshot">
@@ -407,18 +407,7 @@
                     </div>
 
                     <p>You can add up to nine custom maps and toggle their availability on/off to make visible in the Map screen menu drop down (note depending on your phone the menu could grow to be bigger than the screen, but it will be scrollable).</p>
-                    <p> The wizard though will automatically add seven of these and add Google Hybrid (althouh it is already present in the maps above, as a custom add on it allows you to view overlays such as Lidar over it.</p>
-                        <tr>
-                            <td class="video-thumb-cell">
-                                <a href="https://youtu.be/XJJjOhKQ5ow" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
-                                    <div class="yt-thumb-wrap">
-                                        <img src="https://img.youtube.com/vi/XJJjOhKQ5ow/hqdefault.jpg" alt="Video tutorial thumbnail" class="yt-thumbnail">
-                                        <div class="yt-play-btn" aria-hidden="true">&#9654;</div>
-                                    </div>
-                                </a>
-                            </td>
 
-                        </tr>
                     <tr>
                             <td class="video-thumb-cell">
                                 <a href="https://youtu.be/XJJjOhKQ5ow" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
@@ -515,9 +504,9 @@
 
                     <p>Several standard reports can be printed (scroll down). Apart from the Storage &amp; CSV reports you need to select finds first in the Finds tab (press and hold to start selection then tap as many as you need to print).</p>
 
-                    <h3 id="2d-label-printing">2D Label Printing</h3>
+                    <h3 id="2d-label-printing">QR Code Label Printing</h3>
 
-                    <p>The 2D labels are intended to print on 3 x 7 standard labels. The 2D barcode can be scanned by the mobile camera and will launch the app, finding the record in the database.</p>
+                    <p>The QR Code labels are intended to print on 3 x 7 standard labels. The QR Code can be scanned by the mobile camera and will launch the app, finding the record in the database.</p>
 
                     <p>To print labels, you will need to print test prints (I recommend on paper rather than labels themselves) and adjust the settings to match your device (unfortunately I have found the mobile prints smaller labels compared with the Mac) and printer.</p>
 
@@ -539,15 +528,17 @@
 
                 <!-- Import from GPKG -->
                 <div id="import-gpkg" class="manual-section">
-                    <h2>9. Import from GPKG</h2>
-                    <p>It is possible to import your finds from other apps such as GoTerrain that support export to GPKG (these contain the finds record and photos). For desktop and Android this can be done via the section in the Settings screen. iOS devices you will need to use the Apple Files app to find your export and share with DetectLogPro. It is possible to select more than one GPKG file at a time. The app will not allow you to import the same file twice, so it is safe.</p>
+                    <h2>9. GPKG Import & Export</h2>
+                    <p>From the Settings screen it is possible to import your finds from other apps such as GoTerrain that support export to GPKG (these contain the finds record and photos). For desktop and Android this can be done via the section in the Settings screen. iOS devices you will need to use the Apple Files app to find your export and share with DetectLogPro. It is possible to select more than one GPKG file at a time. The app will not allow you to import the same file twice, so it is safe.</p>
 
                     <div class="info-box note-box">
                         <h4>📌 iPhone Tip</h4>
                         <p>On iPhone the file explorer requires you to press the back button after clicking 'Browse' to navigate to folders outside of the app's storage area. Once you know, you know!</p>
                     </div>
 
-                    <p>On iPhone it is also possible to 'share' a file by downloading from an app like OneDrive and then 'sharing' with DetectLogPro. However, this method will only work one file at a time so I recommend using the method above as you will probably have a few exports to load.</p>
+                    <p>From v5.0.0 it is also possible to export your finds with all data including routes and photos to a GPKG file, which can then be imported into another instance of DetectLogPro or other compatible apps such as QGIS.</p>
+
+
                 </div>
 
                 <!-- Cloud Sync -->
