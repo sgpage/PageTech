@@ -119,7 +119,7 @@
     <main>
         <div class="privacy-content">
             <h1>Privacy Policy for DetectPro</h1>
-            <p class="last-updated"><strong>Last Updated: August 3, 2026</strong></p>
+            <p class="last-updated"><strong>Last Updated: October 7, 2026</strong></p>
 
             <h2>Introduction</h2>
             <p>DetectPro ("we," "our," or "the app") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our metal detecting application.</p>
@@ -149,7 +149,7 @@
                 <li>During background route tracking (only when you explicitly start route tracking)</li>
             </ul>
 
-            <p><strong>Note:</strong> Location data is stored <strong>locally on your device</strong> and is never transmitted to our servers. If you enable cloud sync (see below), location data is only uploaded to your personal Google Drive account that you control.</p>
+            <p><strong>Note:</strong> Location data is stored <strong>locally on your device</strong> and is never transmitted to our servers. If you enable cloud sync (see below), location data is only uploaded to your personal Google Drive account that you control. If you turn on the optional MeshCore mesh feature (see below), your position and the location of finds you choose to share are transmitted, encrypted, over the radio mesh to the members of your team.</p>
 
             <h3>2. Photos and Camera Access</h3>
             <p><strong>What we collect:</strong></p>
@@ -260,6 +260,42 @@
                 <li>You can revoke access at any time through your Google Account settings</li>
             </ul>
 
+            <h2>MeshCore Radio Mesh (Optional Feature)</h2>
+            <p>DetectPro can connect to a MeshCore-compatible LoRa radio so you can chat, share your position and share finds with your team in the field, without mobile signal or internet. This feature is:</p>
+            <ul>
+                <li><strong>Off by default</strong> - nothing is sent over the mesh unless you turn it on</li>
+                <li><strong>User-controlled</strong> - you can turn it off or disconnect the radio at any time</li>
+                <li><strong>Per-team and per-person</strong> - your data is only sent to a team while that team is enabled in the app, and each person can independently turn off sharing of their own position and finds while still receiving chat and other members' updates</li>
+                <li><strong>Independent of our servers</strong> - messages travel by radio between devices; PageTech does not operate, receive or store mesh traffic</li>
+            </ul>
+
+            <p><strong>What is sent when the mesh is on:</strong></p>
+            <ul>
+                <li>Chat messages you send</li>
+                <li>Your current position (latitude and longitude), when you use position sharing</li>
+                <li>The <strong>name and location</strong> of finds you choose to share (photos, descriptions, notes and other find details are not sent)</li>
+                <li>The name your device uses on the mesh, so others can identify who sent a message</li>
+            </ul>
+
+            <p><strong>Who can receive it:</strong></p>
+            <ul>
+                <li>Only members of the team you share with. Other DetectPro users who are not in your team cannot read your messages, positions or finds in the app</li>
+                <li>Radios and repeaters that relay mesh traffic. These may be owned by other people, outside our control, but they only carry encrypted data they cannot read</li>
+            </ul>
+
+            <p><strong>How it is protected:</strong></p>
+            <ul>
+                <li>Mesh data is sent on a channel private to DetectPro and is encrypted with 256-bit encryption before it is transmitted. Over the air and through relaying radios it appears only as encoded (base64) text</li>
+                <li>Only members of your team can decrypt and read it. Someone using the standard MeshCore app, or another radio, on the same mesh will see only the encrypted text</li>
+                <li>A team is defined by a shared encryption key. One person creates the team and shares the key with others by QR code. There are no accounts, and PageTech does not hold or see the key</li>
+                <li>Anyone who has the key, including anyone you or a team member shares the QR code with, can read the team's messages, positions and shared finds. Only share the QR code with people you trust, and treat it like a password</li>
+                <li>Everyone in your team can read what you share with it, so only share what you are happy for them to see</li>
+                <li>Data you send cannot be recalled or deleted from your team members' devices once received</li>
+            </ul>
+
+            <p><strong>Storage:</strong> Chat history and positions or finds received over the mesh are stored locally on your device, and are removed when you delete them or uninstall the app.</p>
+            <p><strong>Connection:</strong> The radio connects to your device using Bluetooth Low Energy (BLE). See Permissions Explained below.</p>
+
             <h2>Data Storage and Security</h2>
 
             <h3>Local Storage</h3>
@@ -273,6 +309,7 @@
             <h3>Security Measures</h3>
             <ul>
                 <li>No data is transmitted to third-party servers (except your chosen cloud provider)</li>
+                <li>If you enable the optional mesh feature, shared data is encrypted (256-bit) before it is sent over the radio</li>
                 <li>OAuth tokens automatically refresh and expire for security</li>
                 <li>No user accounts or passwords are required or stored by us</li>
                 <li>All cloud communication uses HTTPS encryption</li>
@@ -390,6 +427,14 @@
                 <li><strong>Why:</strong> To add existing photos to your finds</li>
             </ul>
 
+            <h3>Bluetooth / Nearby Devices (Optional)</h3>
+            <ul>
+                <li><strong>Android:</strong> BLUETOOTH_SCAN, BLUETOOTH_CONNECT (on older Android versions, Bluetooth scanning also requires the location permission)</li>
+                <li><strong>When:</strong> Only when you connect a MeshCore radio</li>
+                <li><strong>Why:</strong> To find and communicate with your radio. Bluetooth is not used to track your location or for any other purpose</li>
+                <li><strong>Control:</strong> You can deny this permission and still use all other features</li>
+            </ul>
+
             <h3>Storage (Android)</h3>
             <ul>
                 <li><strong>When:</strong> Saving exports or accessing images</li>
@@ -416,6 +461,7 @@
             <h2>Data Processing Location</h2>
             <ul>
                 <li>All data processing occurs <strong>locally on your device</strong></li>
+                <li>If you enable the optional mesh feature, messages, positions and shared finds are transmitted by radio, encrypted, to your team (see MeshCore Radio Mesh above)</li>
                 <li>If you enable cloud sync, data is stored in Google's data centers according to Google's privacy policy</li>
                 <li>We do not operate any servers that store or process your data</li>
             </ul>
@@ -441,7 +487,7 @@
 
             <h3>Legal Basis for Processing</h3>
             <ul>
-                <li><strong>Consent:</strong> For optional features like cloud sync</li>
+                <li><strong>Consent:</strong> For optional features like cloud sync and mesh sharing (position, finds and chat are only shared with other users after you turn the mesh on)</li>
                 <li><strong>Legitimate Interest:</strong> For core app functionality (local storage)</li>
             </ul>
 
@@ -496,6 +542,7 @@
                     <li>Optional cloud sync uploads only to YOUR Google Drive</li>
                     <li>Subscriptions are managed by RevenueCat using only anonymous IDs — they never see your finds, photos, or location</li>
                     <li>We never see or store your finds, photos, or location data on our servers</li>
+                    <li>The optional mesh radio feature is off until you turn it on. When on, your chat, position and the name and location of finds you share are encrypted and sent by radio to your team only - not to us</li>
                     <li>You can delete everything at any time</li>
                     <li>We use anonymous usage analytics (PostHog) to see which features are used - no ads, no personal tracking</li>
                 </ul>
