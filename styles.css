@@ -646,6 +646,13 @@ section {
     margin: -10px 0;
 }
 
+.store-badges-row {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
 .store-badges-cta {
     flex-direction: row;
     justify-content: center;
